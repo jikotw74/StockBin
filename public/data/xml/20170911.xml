@@ -1,0 +1,1348 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TWHSRTrainList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="TWHSR.xsd">
+  <TrainInfo LineDir="1" Note="" Train="108">
+    <TimeInfo ARRTime="0755" DEPTime="0755" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0837" DEPTime="0839" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0920" DEPTime="0921" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0929" DEPTime="0932" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0940" DEPTime="0940" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="109">
+    <TimeInfo ARRTime="0720" DEPTime="0720" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0728" DEPTime="0731" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0738" DEPTime="0739" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0818" DEPTime="0820" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0905" DEPTime="0905" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="112">
+    <TimeInfo ARRTime="0855" DEPTime="0855" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0937" DEPTime="0939" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1020" DEPTime="1021" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1029" DEPTime="1032" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1040" DEPTime="1040" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="113">
+    <TimeInfo ARRTime="0820" DEPTime="0820" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0828" DEPTime="0831" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0838" DEPTime="0839" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0918" DEPTime="0920" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1005" DEPTime="1005" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="116">
+    <TimeInfo ARRTime="0955" DEPTime="0955" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1037" DEPTime="1039" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1120" DEPTime="1121" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1129" DEPTime="1132" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1140" DEPTime="1140" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="117">
+    <TimeInfo ARRTime="0920" DEPTime="0920" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0928" DEPTime="0931" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0938" DEPTime="0939" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1018" DEPTime="1020" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1105" DEPTime="1105" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="120">
+    <TimeInfo ARRTime="1055" DEPTime="1055" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1137" DEPTime="1139" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1220" DEPTime="1221" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1229" DEPTime="1232" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1240" DEPTime="1240" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="121">
+    <TimeInfo ARRTime="1020" DEPTime="1020" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1028" DEPTime="1031" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1038" DEPTime="1039" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1118" DEPTime="1120" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1205" DEPTime="1205" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="124">
+    <TimeInfo ARRTime="1155" DEPTime="1155" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1237" DEPTime="1239" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1320" DEPTime="1321" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1329" DEPTime="1332" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1340" DEPTime="1340" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="125">
+    <TimeInfo ARRTime="1120" DEPTime="1120" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1128" DEPTime="1131" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1138" DEPTime="1139" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1218" DEPTime="1220" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1305" DEPTime="1305" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="128">
+    <TimeInfo ARRTime="1255" DEPTime="1255" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1337" DEPTime="1339" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1420" DEPTime="1421" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1429" DEPTime="1432" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1440" DEPTime="1440" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="129">
+    <TimeInfo ARRTime="1220" DEPTime="1220" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1228" DEPTime="1231" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1238" DEPTime="1239" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1318" DEPTime="1320" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1405" DEPTime="1405" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="132">
+    <TimeInfo ARRTime="1355" DEPTime="1355" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1437" DEPTime="1439" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1520" DEPTime="1521" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1529" DEPTime="1532" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1540" DEPTime="1540" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="133">
+    <TimeInfo ARRTime="1320" DEPTime="1320" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1328" DEPTime="1331" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1338" DEPTime="1339" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1418" DEPTime="1420" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1505" DEPTime="1505" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="136">
+    <TimeInfo ARRTime="1455" DEPTime="1455" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1537" DEPTime="1539" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1620" DEPTime="1621" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1629" DEPTime="1632" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1640" DEPTime="1640" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="137">
+    <TimeInfo ARRTime="1420" DEPTime="1420" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1428" DEPTime="1431" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1438" DEPTime="1439" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1518" DEPTime="1520" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1605" DEPTime="1605" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="140">
+    <TimeInfo ARRTime="1555" DEPTime="1555" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1637" DEPTime="1639" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1720" DEPTime="1721" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1729" DEPTime="1732" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1740" DEPTime="1740" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="141">
+    <TimeInfo ARRTime="1520" DEPTime="1520" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1528" DEPTime="1531" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1538" DEPTime="1539" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1618" DEPTime="1620" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1705" DEPTime="1705" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="144">
+    <TimeInfo ARRTime="1655" DEPTime="1655" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1737" DEPTime="1739" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1820" DEPTime="1821" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1829" DEPTime="1832" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1840" DEPTime="1840" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="145">
+    <TimeInfo ARRTime="1620" DEPTime="1620" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1628" DEPTime="1631" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1638" DEPTime="1639" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1718" DEPTime="1720" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1805" DEPTime="1805" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="148">
+    <TimeInfo ARRTime="1755" DEPTime="1755" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1837" DEPTime="1839" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1920" DEPTime="1921" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1929" DEPTime="1932" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1940" DEPTime="1940" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="149">
+    <TimeInfo ARRTime="1720" DEPTime="1720" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1728" DEPTime="1731" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1738" DEPTime="1739" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1818" DEPTime="1820" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1905" DEPTime="1905" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="152">
+    <TimeInfo ARRTime="1855" DEPTime="1855" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1937" DEPTime="1939" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2020" DEPTime="2021" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2029" DEPTime="2032" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2040" DEPTime="2040" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="153">
+    <TimeInfo ARRTime="1820" DEPTime="1820" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1828" DEPTime="1831" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1838" DEPTime="1839" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1918" DEPTime="1920" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2005" DEPTime="2005" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="156">
+    <TimeInfo ARRTime="1955" DEPTime="1955" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2037" DEPTime="2039" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2120" DEPTime="2121" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2129" DEPTime="2132" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2140" DEPTime="2140" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="157">
+    <TimeInfo ARRTime="1920" DEPTime="1920" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1928" DEPTime="1931" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1938" DEPTime="1939" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2018" DEPTime="2020" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2105" DEPTime="2105" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="160">
+    <TimeInfo ARRTime="2055" DEPTime="2055" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2137" DEPTime="2139" Order="2" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2220" DEPTime="2221" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2229" DEPTime="2232" Order="4" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2240" DEPTime="2240" Order="5" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="161">
+    <TimeInfo ARRTime="2020" DEPTime="2020" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2028" DEPTime="2031" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2038" DEPTime="2039" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2118" DEPTime="2120" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2205" DEPTime="2205" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="165">
+    <TimeInfo ARRTime="2120" DEPTime="2120" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2128" DEPTime="2131" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2138" DEPTime="2139" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2218" DEPTime="2220" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2305" DEPTime="2305" Order="5" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="200">
+    <TimeInfo ARRTime="0600" DEPTime="0600" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0612" DEPTime="0613" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0630" DEPTime="0632" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0654" DEPTime="0656" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0726" DEPTime="0728" Order="5" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0744" DEPTime="0747" Order="6" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0755" DEPTime="0755" Order="7" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="203">
+    <TimeInfo ARRTime="0630" DEPTime="0630" Order="1" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0637" DEPTime="0638" Order="2" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0718" DEPTime="0720" Order="3" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0743" DEPTime="0745" Order="4" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0801" DEPTime="0803" Order="5" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0815" DEPTime="0815" Order="6" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="204">
+    <TimeInfo ARRTime="0655" DEPTime="0655" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0706" DEPTime="0707" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0746" DEPTime="0748" Order="3" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0826" DEPTime="0827" Order="4" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0834" DEPTime="0837" Order="5" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0845" DEPTime="0845" Order="6" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="205">
+    <TimeInfo ARRTime="0740" DEPTime="0740" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0748" DEPTime="0751" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0758" DEPTime="0759" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0838" DEPTime="0840" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0917" DEPTime="0918" Order="5" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0930" DEPTime="0930" Order="6" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="206">
+    <TimeInfo ARRTime="0715" DEPTime="0715" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0727" DEPTime="0728" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0806" DEPTime="0808" Order="3" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0846" DEPTime="0847" Order="4" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0854" DEPTime="0857" Order="5" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0905" DEPTime="0905" Order="6" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="242">
+    <TimeInfo ARRTime="1615" DEPTime="1615" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1627" DEPTime="1628" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1706" DEPTime="1708" Order="3" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1746" DEPTime="1747" Order="4" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1754" DEPTime="1757" Order="5" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1805" DEPTime="1805" Order="6" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="249">
+    <TimeInfo ARRTime="1840" DEPTime="1840" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1848" DEPTime="1851" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1858" DEPTime="1859" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1938" DEPTime="1940" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2017" DEPTime="2018" Order="5" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2030" DEPTime="2030" Order="6" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="294">
+    <TimeInfo ARRTime="2210" DEPTime="2210" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2222" DEPTime="2223" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2301" DEPTime="2303" Order="3" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2341" DEPTime="2342" Order="4" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2349" DEPTime="2352" Order="5" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2359" DEPTime="2359" Order="6" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="295">
+    <TimeInfo ARRTime="2205" DEPTime="2205" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2213" DEPTime="2216" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2233" DEPTime="2235" Order="3" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2305" DEPTime="2307" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2329" DEPTime="2330" Order="5" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2347" DEPTime="2348" Order="6" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2359" DEPTime="2359" Order="7" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="333">
+    <TimeInfo ARRTime="2145" DEPTime="2145" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2153" DEPTime="2156" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2213" DEPTime="2215" Order="3" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2247" DEPTime="2249" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2300" DEPTime="2301" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="2311" DEPTime="2312" Order="6" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="2322" DEPTime="2324" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2341" DEPTime="2342" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2355" DEPTime="2355" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="502">
+    <TimeInfo ARRTime="0625" DEPTime="0625" Order="1" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0643" DEPTime="0644" Order="2" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0656" DEPTime="0657" Order="3" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0707" DEPTime="0709" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0721" DEPTime="0722" Order="5" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0729" DEPTime="0732" Order="6" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0740" DEPTime="0740" Order="7" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="565">
+    <TimeInfo ARRTime="2215" DEPTime="2215" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2223" DEPTime="2226" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2234" DEPTime="2235" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2246" DEPTime="2248" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2258" DEPTime="2300" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2311" DEPTime="2312" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2329" DEPTime="2329" Order="7" Station="1040" StationCode="40" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="567">
+    <TimeInfo ARRTime="2250" DEPTime="2250" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2257" DEPTime="2300" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2307" DEPTime="2308" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2319" DEPTime="2321" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2330" DEPTime="2332" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2342" DEPTime="2343" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2359" DEPTime="2359" Order="7" Station="1040" StationCode="40" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="583">
+    <TimeInfo ARRTime="0625" DEPTime="0625" Order="1" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0636" DEPTime="0637" Order="2" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="0646" DEPTime="0647" Order="3" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="0657" DEPTime="0659" Order="4" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0716" DEPTime="0717" Order="5" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0730" DEPTime="0730" Order="6" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="598">
+    <TimeInfo ARRTime="2255" DEPTime="2255" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2306" DEPTime="2308" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2326" DEPTime="2327" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2338" DEPTime="2339" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="2348" DEPTime="2349" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="2359" DEPTime="2359" Order="6" Station="1040" StationCode="40" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="603">
+    <TimeInfo ARRTime="0640" DEPTime="0640" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0648" DEPTime="0651" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0659" DEPTime="0700" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0713" DEPTime="0715" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0726" DEPTime="0727" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0751" DEPTime="0753" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0818" DEPTime="0819" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0837" DEPTime="0838" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0850" DEPTime="0850" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="606">
+    <TimeInfo ARRTime="0700" DEPTime="0700" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0712" DEPTime="0713" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0730" DEPTime="0732" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0758" DEPTime="0800" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0823" DEPTime="0825" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0836" DEPTime="0838" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0850" DEPTime="0851" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0859" DEPTime="0902" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0910" DEPTime="0910" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="609">
+    <TimeInfo ARRTime="0735" DEPTime="0735" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0743" DEPTime="0746" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0754" DEPTime="0755" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0807" DEPTime="0810" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0821" DEPTime="0822" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0846" DEPTime="0848" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0913" DEPTime="0914" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0932" DEPTime="0933" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0945" DEPTime="0945" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="610">
+    <TimeInfo ARRTime="0735" DEPTime="0735" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0747" DEPTime="0748" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0806" DEPTime="0808" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0830" DEPTime="0832" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0856" DEPTime="0857" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0909" DEPTime="0911" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0924" DEPTime="0925" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0933" DEPTime="0936" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0945" DEPTime="0945" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="612">
+    <TimeInfo ARRTime="0800" DEPTime="0800" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0812" DEPTime="0813" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0830" DEPTime="0832" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0858" DEPTime="0900" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0923" DEPTime="0925" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0936" DEPTime="0938" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0950" DEPTime="0951" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0959" DEPTime="1002" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1010" DEPTime="1010" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="613">
+    <TimeInfo ARRTime="0810" DEPTime="0810" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0818" DEPTime="0821" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0828" DEPTime="0829" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0841" DEPTime="0843" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0853" DEPTime="0856" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0923" DEPTime="0925" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0948" DEPTime="0950" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1006" DEPTime="1007" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1020" DEPTime="1020" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="615">
+    <TimeInfo ARRTime="0835" DEPTime="0835" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0843" DEPTime="0846" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0854" DEPTime="0855" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0908" DEPTime="0910" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0921" DEPTime="0922" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0946" DEPTime="0948" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1013" DEPTime="1014" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1032" DEPTime="1033" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1045" DEPTime="1045" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="616">
+    <TimeInfo ARRTime="0835" DEPTime="0835" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0847" DEPTime="0848" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0906" DEPTime="0908" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0930" DEPTime="0932" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0956" DEPTime="0957" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1009" DEPTime="1011" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1024" DEPTime="1025" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1033" DEPTime="1036" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1045" DEPTime="1045" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="618">
+    <TimeInfo ARRTime="0900" DEPTime="0900" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0912" DEPTime="0913" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0930" DEPTime="0932" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0958" DEPTime="1000" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1023" DEPTime="1025" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1036" DEPTime="1038" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1050" DEPTime="1051" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1059" DEPTime="1102" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1110" DEPTime="1110" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="619">
+    <TimeInfo ARRTime="0910" DEPTime="0910" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0918" DEPTime="0921" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0928" DEPTime="0929" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0941" DEPTime="0943" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0953" DEPTime="0956" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1023" DEPTime="1025" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1048" DEPTime="1050" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1106" DEPTime="1107" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1120" DEPTime="1120" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="621">
+    <TimeInfo ARRTime="0935" DEPTime="0935" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0943" DEPTime="0946" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0954" DEPTime="0955" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1008" DEPTime="1010" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1021" DEPTime="1022" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1046" DEPTime="1048" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1113" DEPTime="1114" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1132" DEPTime="1133" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1145" DEPTime="1145" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="624">
+    <TimeInfo ARRTime="1000" DEPTime="1000" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1012" DEPTime="1013" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1030" DEPTime="1032" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1058" DEPTime="1100" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1123" DEPTime="1125" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1136" DEPTime="1138" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1150" DEPTime="1151" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1159" DEPTime="1202" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1210" DEPTime="1210" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="625">
+    <TimeInfo ARRTime="1010" DEPTime="1010" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1018" DEPTime="1021" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1028" DEPTime="1029" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1041" DEPTime="1043" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1053" DEPTime="1056" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1123" DEPTime="1125" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1148" DEPTime="1150" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1206" DEPTime="1207" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1220" DEPTime="1220" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="627">
+    <TimeInfo ARRTime="1035" DEPTime="1035" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1043" DEPTime="1046" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1054" DEPTime="1055" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1108" DEPTime="1110" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1121" DEPTime="1122" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1146" DEPTime="1148" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1213" DEPTime="1214" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1232" DEPTime="1233" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1245" DEPTime="1245" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="628">
+    <TimeInfo ARRTime="1035" DEPTime="1035" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1047" DEPTime="1048" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1106" DEPTime="1108" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1130" DEPTime="1132" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1156" DEPTime="1157" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1209" DEPTime="1211" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1224" DEPTime="1225" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1233" DEPTime="1236" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1245" DEPTime="1245" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="630">
+    <TimeInfo ARRTime="1100" DEPTime="1100" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1112" DEPTime="1113" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1130" DEPTime="1132" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1158" DEPTime="1200" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1223" DEPTime="1225" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1236" DEPTime="1238" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1250" DEPTime="1251" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1259" DEPTime="1302" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1310" DEPTime="1310" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="633">
+    <TimeInfo ARRTime="1135" DEPTime="1135" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1143" DEPTime="1146" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1154" DEPTime="1155" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1208" DEPTime="1210" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1221" DEPTime="1222" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1246" DEPTime="1248" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1313" DEPTime="1314" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1332" DEPTime="1333" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1345" DEPTime="1345" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="636">
+    <TimeInfo ARRTime="1200" DEPTime="1200" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1212" DEPTime="1213" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1230" DEPTime="1232" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1258" DEPTime="1300" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1323" DEPTime="1325" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1336" DEPTime="1338" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1350" DEPTime="1351" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1359" DEPTime="1402" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1410" DEPTime="1410" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="639">
+    <TimeInfo ARRTime="1235" DEPTime="1235" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1243" DEPTime="1246" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1254" DEPTime="1255" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1308" DEPTime="1310" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1321" DEPTime="1322" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1346" DEPTime="1348" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1413" DEPTime="1414" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1432" DEPTime="1433" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1445" DEPTime="1445" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="642">
+    <TimeInfo ARRTime="1300" DEPTime="1300" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1312" DEPTime="1313" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1330" DEPTime="1332" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1358" DEPTime="1400" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1423" DEPTime="1425" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1436" DEPTime="1438" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1450" DEPTime="1451" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1459" DEPTime="1502" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1510" DEPTime="1510" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="645">
+    <TimeInfo ARRTime="1335" DEPTime="1335" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1343" DEPTime="1346" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1354" DEPTime="1355" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1408" DEPTime="1410" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1421" DEPTime="1422" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1446" DEPTime="1448" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1513" DEPTime="1514" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1532" DEPTime="1533" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1545" DEPTime="1545" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="648">
+    <TimeInfo ARRTime="1400" DEPTime="1400" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1412" DEPTime="1413" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1430" DEPTime="1432" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1458" DEPTime="1500" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1523" DEPTime="1525" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1536" DEPTime="1538" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1550" DEPTime="1551" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1559" DEPTime="1602" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1610" DEPTime="1610" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="651">
+    <TimeInfo ARRTime="1435" DEPTime="1435" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1443" DEPTime="1446" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1454" DEPTime="1455" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1508" DEPTime="1510" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1521" DEPTime="1522" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1546" DEPTime="1548" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1613" DEPTime="1614" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1632" DEPTime="1633" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1645" DEPTime="1645" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="654">
+    <TimeInfo ARRTime="1500" DEPTime="1500" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1512" DEPTime="1513" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1530" DEPTime="1532" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1558" DEPTime="1600" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1623" DEPTime="1625" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1636" DEPTime="1638" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1650" DEPTime="1651" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1659" DEPTime="1702" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1710" DEPTime="1710" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="657">
+    <TimeInfo ARRTime="1535" DEPTime="1535" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1543" DEPTime="1546" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1554" DEPTime="1555" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1608" DEPTime="1610" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1621" DEPTime="1622" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1646" DEPTime="1648" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1713" DEPTime="1714" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1732" DEPTime="1733" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1745" DEPTime="1745" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="660">
+    <TimeInfo ARRTime="1600" DEPTime="1600" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1612" DEPTime="1613" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1630" DEPTime="1632" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1658" DEPTime="1700" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1723" DEPTime="1725" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1736" DEPTime="1738" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1750" DEPTime="1751" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1759" DEPTime="1802" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1810" DEPTime="1810" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="661">
+    <TimeInfo ARRTime="1610" DEPTime="1610" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1618" DEPTime="1621" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1628" DEPTime="1629" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1641" DEPTime="1643" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1653" DEPTime="1656" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1723" DEPTime="1725" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1748" DEPTime="1750" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1806" DEPTime="1807" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1820" DEPTime="1820" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="663">
+    <TimeInfo ARRTime="1635" DEPTime="1635" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1643" DEPTime="1646" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1654" DEPTime="1655" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1708" DEPTime="1710" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1721" DEPTime="1722" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1746" DEPTime="1748" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1813" DEPTime="1814" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1832" DEPTime="1833" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1845" DEPTime="1845" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="664">
+    <TimeInfo ARRTime="1635" DEPTime="1635" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1647" DEPTime="1648" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1706" DEPTime="1708" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1730" DEPTime="1732" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1756" DEPTime="1757" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1809" DEPTime="1811" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1824" DEPTime="1825" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1833" DEPTime="1836" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1845" DEPTime="1845" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="666">
+    <TimeInfo ARRTime="1700" DEPTime="1700" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1712" DEPTime="1713" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1730" DEPTime="1732" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1758" DEPTime="1800" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1823" DEPTime="1825" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1836" DEPTime="1838" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1850" DEPTime="1851" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1859" DEPTime="1902" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1910" DEPTime="1910" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="667">
+    <TimeInfo ARRTime="1710" DEPTime="1710" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1718" DEPTime="1721" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1728" DEPTime="1729" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1741" DEPTime="1743" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1753" DEPTime="1756" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1823" DEPTime="1825" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1848" DEPTime="1850" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1906" DEPTime="1907" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1920" DEPTime="1920" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="669">
+    <TimeInfo ARRTime="1735" DEPTime="1735" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1743" DEPTime="1746" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1754" DEPTime="1755" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1808" DEPTime="1810" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1821" DEPTime="1822" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1846" DEPTime="1848" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1913" DEPTime="1914" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1932" DEPTime="1933" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1945" DEPTime="1945" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="670">
+    <TimeInfo ARRTime="1735" DEPTime="1735" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1747" DEPTime="1748" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1806" DEPTime="1808" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1830" DEPTime="1832" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1856" DEPTime="1857" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1909" DEPTime="1911" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1924" DEPTime="1925" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1933" DEPTime="1936" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1945" DEPTime="1945" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="672">
+    <TimeInfo ARRTime="1800" DEPTime="1800" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1812" DEPTime="1813" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1830" DEPTime="1832" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1858" DEPTime="1900" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1923" DEPTime="1925" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1936" DEPTime="1938" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1950" DEPTime="1951" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1959" DEPTime="2002" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2010" DEPTime="2010" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="673">
+    <TimeInfo ARRTime="1810" DEPTime="1810" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1818" DEPTime="1821" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1828" DEPTime="1829" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1841" DEPTime="1843" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1853" DEPTime="1856" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1923" DEPTime="1925" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1948" DEPTime="1950" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2006" DEPTime="2007" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2020" DEPTime="2020" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="675">
+    <TimeInfo ARRTime="1835" DEPTime="1835" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1843" DEPTime="1846" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1854" DEPTime="1855" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1907" DEPTime="1910" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1921" DEPTime="1922" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1946" DEPTime="1948" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2013" DEPTime="2014" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2032" DEPTime="2033" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2045" DEPTime="2045" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="676">
+    <TimeInfo ARRTime="1835" DEPTime="1835" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1847" DEPTime="1848" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1906" DEPTime="1908" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1930" DEPTime="1932" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1956" DEPTime="1957" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2009" DEPTime="2011" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2024" DEPTime="2025" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2033" DEPTime="2036" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2045" DEPTime="2045" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="678">
+    <TimeInfo ARRTime="1900" DEPTime="1900" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1912" DEPTime="1913" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1930" DEPTime="1932" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1958" DEPTime="2000" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2023" DEPTime="2025" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2036" DEPTime="2038" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2050" DEPTime="2051" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2059" DEPTime="2102" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2110" DEPTime="2110" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="681">
+    <TimeInfo ARRTime="1935" DEPTime="1935" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1943" DEPTime="1946" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1954" DEPTime="1955" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2008" DEPTime="2010" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2021" DEPTime="2022" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2046" DEPTime="2048" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2113" DEPTime="2114" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2132" DEPTime="2133" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2145" DEPTime="2145" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="684">
+    <TimeInfo ARRTime="2000" DEPTime="2000" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2012" DEPTime="2013" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2030" DEPTime="2032" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2058" DEPTime="2100" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2123" DEPTime="2125" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2136" DEPTime="2138" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2150" DEPTime="2151" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2159" DEPTime="2202" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2210" DEPTime="2210" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="687">
+    <TimeInfo ARRTime="2035" DEPTime="2035" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2043" DEPTime="2046" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2054" DEPTime="2055" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2108" DEPTime="2110" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2121" DEPTime="2122" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2146" DEPTime="2148" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2213" DEPTime="2214" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2232" DEPTime="2233" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2245" DEPTime="2245" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="690">
+    <TimeInfo ARRTime="2105" DEPTime="2105" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2117" DEPTime="2118" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2135" DEPTime="2137" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2203" DEPTime="2205" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2228" DEPTime="2230" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2241" DEPTime="2243" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2255" DEPTime="2256" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2304" DEPTime="2307" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2315" DEPTime="2315" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="693">
+    <TimeInfo ARRTime="2130" DEPTime="2130" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2138" DEPTime="2141" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2149" DEPTime="2150" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2203" DEPTime="2205" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2216" DEPTime="2217" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2241" DEPTime="2243" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2308" DEPTime="2309" Order="7" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2327" DEPTime="2328" Order="8" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2340" DEPTime="2340" Order="9" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="696">
+    <TimeInfo ARRTime="2155" DEPTime="2155" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2209" DEPTime="2211" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2230" DEPTime="2232" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2257" DEPTime="2259" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2324" DEPTime="2327" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2338" DEPTime="2340" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2351" DEPTime="2352" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2359" DEPTime="2359" Order="8" Station="1000" StationCode="10" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="802">
+    <TimeInfo ARRTime="0615" DEPTime="0615" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0628" DEPTime="0629" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0646" DEPTime="0648" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0659" DEPTime="0700" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="0710" DEPTime="0713" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="0723" DEPTime="0725" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0744" DEPTime="0745" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0756" DEPTime="0758" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0808" DEPTime="0810" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0821" DEPTime="0822" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0829" DEPTime="0832" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0840" DEPTime="0840" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="803">
+    <TimeInfo ARRTime="0615" DEPTime="0615" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0623" DEPTime="0626" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0633" DEPTime="0634" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0647" DEPTime="0649" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0700" DEPTime="0702" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0712" DEPTime="0713" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0730" DEPTime="0732" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0744" DEPTime="0745" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="0755" DEPTime="0756" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="0809" DEPTime="0810" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0826" DEPTime="0828" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0840" DEPTime="0840" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="805">
+    <TimeInfo ARRTime="0700" DEPTime="0700" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0708" DEPTime="0711" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0718" DEPTime="0719" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0732" DEPTime="0734" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0745" DEPTime="0747" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0757" DEPTime="0758" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0815" DEPTime="0817" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0827" DEPTime="0830" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="0840" DEPTime="0841" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="0854" DEPTime="0855" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0911" DEPTime="0913" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0925" DEPTime="0925" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="806">
+    <TimeInfo ARRTime="0725" DEPTime="0725" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0740" DEPTime="0741" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0758" DEPTime="0800" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0811" DEPTime="0812" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="0821" DEPTime="0824" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="0834" DEPTime="0836" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0854" DEPTime="0856" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0907" DEPTime="0908" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0918" DEPTime="0920" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0931" DEPTime="0932" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0939" DEPTime="0942" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0950" DEPTime="0950" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="809">
+    <TimeInfo ARRTime="0800" DEPTime="0800" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0808" DEPTime="0811" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0818" DEPTime="0819" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0832" DEPTime="0834" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0845" DEPTime="0847" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0857" DEPTime="0858" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0915" DEPTime="0917" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0927" DEPTime="0930" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="0939" DEPTime="0941" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="0954" DEPTime="0955" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1011" DEPTime="1013" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1025" DEPTime="1025" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="810">
+    <TimeInfo ARRTime="0825" DEPTime="0825" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0840" DEPTime="0841" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0858" DEPTime="0900" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0911" DEPTime="0912" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="0921" DEPTime="0924" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="0934" DEPTime="0936" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0954" DEPTime="0956" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1007" DEPTime="1008" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1018" DEPTime="1020" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1031" DEPTime="1032" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1039" DEPTime="1042" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1050" DEPTime="1050" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="813">
+    <TimeInfo ARRTime="0900" DEPTime="0900" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0908" DEPTime="0911" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0918" DEPTime="0919" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0932" DEPTime="0934" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0945" DEPTime="0947" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0957" DEPTime="0958" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1015" DEPTime="1017" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1027" DEPTime="1030" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1039" DEPTime="1041" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1054" DEPTime="1055" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1111" DEPTime="1113" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1125" DEPTime="1125" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="814">
+    <TimeInfo ARRTime="0925" DEPTime="0925" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0940" DEPTime="0941" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0958" DEPTime="1000" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1011" DEPTime="1012" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1023" DEPTime="1024" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1034" DEPTime="1036" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1054" DEPTime="1056" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1107" DEPTime="1108" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1118" DEPTime="1120" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1131" DEPTime="1132" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1139" DEPTime="1142" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1150" DEPTime="1150" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="817">
+    <TimeInfo ARRTime="1000" DEPTime="1000" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1008" DEPTime="1011" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1018" DEPTime="1019" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1032" DEPTime="1034" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1045" DEPTime="1047" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1057" DEPTime="1058" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1115" DEPTime="1117" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1127" DEPTime="1130" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1139" DEPTime="1141" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1154" DEPTime="1155" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1211" DEPTime="1213" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1225" DEPTime="1225" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="818">
+    <TimeInfo ARRTime="1025" DEPTime="1025" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1040" DEPTime="1041" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1058" DEPTime="1100" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1111" DEPTime="1112" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1121" DEPTime="1124" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1134" DEPTime="1136" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1154" DEPTime="1156" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1207" DEPTime="1208" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1218" DEPTime="1220" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1231" DEPTime="1232" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1239" DEPTime="1242" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1250" DEPTime="1250" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="821">
+    <TimeInfo ARRTime="1100" DEPTime="1100" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1108" DEPTime="1111" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1118" DEPTime="1119" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1132" DEPTime="1134" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1145" DEPTime="1147" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1157" DEPTime="1158" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1215" DEPTime="1217" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1227" DEPTime="1230" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1240" DEPTime="1241" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1254" DEPTime="1255" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1311" DEPTime="1313" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1325" DEPTime="1325" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="822">
+    <TimeInfo ARRTime="1125" DEPTime="1125" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1140" DEPTime="1141" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1158" DEPTime="1200" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1211" DEPTime="1212" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1223" DEPTime="1224" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1234" DEPTime="1236" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1254" DEPTime="1256" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1307" DEPTime="1308" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1318" DEPTime="1320" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1331" DEPTime="1332" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1339" DEPTime="1342" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1350" DEPTime="1350" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="825">
+    <TimeInfo ARRTime="1200" DEPTime="1200" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1208" DEPTime="1211" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1218" DEPTime="1219" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1232" DEPTime="1234" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1245" DEPTime="1247" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1257" DEPTime="1258" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1315" DEPTime="1317" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1327" DEPTime="1330" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1340" DEPTime="1341" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1354" DEPTime="1355" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1411" DEPTime="1413" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1425" DEPTime="1425" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="826">
+    <TimeInfo ARRTime="1225" DEPTime="1225" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1240" DEPTime="1241" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1258" DEPTime="1300" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1311" DEPTime="1312" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1323" DEPTime="1324" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1334" DEPTime="1336" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1354" DEPTime="1356" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1407" DEPTime="1408" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1418" DEPTime="1420" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1431" DEPTime="1432" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1439" DEPTime="1442" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1450" DEPTime="1450" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="829">
+    <TimeInfo ARRTime="1300" DEPTime="1300" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1308" DEPTime="1311" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1318" DEPTime="1319" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1332" DEPTime="1334" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1345" DEPTime="1347" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1357" DEPTime="1358" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1415" DEPTime="1417" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1427" DEPTime="1430" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1440" DEPTime="1441" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1454" DEPTime="1455" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1511" DEPTime="1513" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1525" DEPTime="1525" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="830">
+    <TimeInfo ARRTime="1325" DEPTime="1325" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1340" DEPTime="1341" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1358" DEPTime="1400" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1411" DEPTime="1412" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1423" DEPTime="1424" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1434" DEPTime="1436" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1454" DEPTime="1456" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1507" DEPTime="1508" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1518" DEPTime="1520" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1531" DEPTime="1532" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1539" DEPTime="1542" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1550" DEPTime="1550" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="833">
+    <TimeInfo ARRTime="1400" DEPTime="1400" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1408" DEPTime="1411" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1418" DEPTime="1419" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1432" DEPTime="1434" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1445" DEPTime="1447" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1457" DEPTime="1458" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1515" DEPTime="1517" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1527" DEPTime="1530" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1540" DEPTime="1541" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1554" DEPTime="1555" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1611" DEPTime="1613" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1625" DEPTime="1625" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="834">
+    <TimeInfo ARRTime="1425" DEPTime="1425" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1440" DEPTime="1441" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1458" DEPTime="1500" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1511" DEPTime="1512" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1523" DEPTime="1524" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1534" DEPTime="1536" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1554" DEPTime="1556" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1607" DEPTime="1608" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1618" DEPTime="1620" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1631" DEPTime="1632" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1639" DEPTime="1642" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1650" DEPTime="1650" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="837">
+    <TimeInfo ARRTime="1500" DEPTime="1500" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1508" DEPTime="1511" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1518" DEPTime="1519" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1532" DEPTime="1534" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1545" DEPTime="1547" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1557" DEPTime="1558" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1615" DEPTime="1617" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1627" DEPTime="1630" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1640" DEPTime="1641" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1654" DEPTime="1655" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1711" DEPTime="1713" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1725" DEPTime="1725" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="838">
+    <TimeInfo ARRTime="1525" DEPTime="1525" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1540" DEPTime="1541" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1558" DEPTime="1600" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1611" DEPTime="1612" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1623" DEPTime="1624" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1634" DEPTime="1636" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1654" DEPTime="1656" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1707" DEPTime="1708" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1718" DEPTime="1720" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1731" DEPTime="1732" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1739" DEPTime="1742" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1750" DEPTime="1750" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="841">
+    <TimeInfo ARRTime="1600" DEPTime="1600" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1608" DEPTime="1611" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1618" DEPTime="1619" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1632" DEPTime="1634" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1645" DEPTime="1647" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1657" DEPTime="1658" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1715" DEPTime="1717" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1727" DEPTime="1730" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1739" DEPTime="1741" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1754" DEPTime="1755" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1811" DEPTime="1813" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1825" DEPTime="1825" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="842">
+    <TimeInfo ARRTime="1625" DEPTime="1625" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1640" DEPTime="1641" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1658" DEPTime="1700" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1711" DEPTime="1712" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1721" DEPTime="1724" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1734" DEPTime="1736" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1754" DEPTime="1756" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1807" DEPTime="1808" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1818" DEPTime="1820" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1831" DEPTime="1832" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1839" DEPTime="1842" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1850" DEPTime="1850" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="845">
+    <TimeInfo ARRTime="1700" DEPTime="1700" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1708" DEPTime="1711" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1718" DEPTime="1719" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1732" DEPTime="1734" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1745" DEPTime="1747" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1757" DEPTime="1758" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1815" DEPTime="1817" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1827" DEPTime="1830" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1839" DEPTime="1841" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1854" DEPTime="1855" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1911" DEPTime="1913" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1925" DEPTime="1925" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="846">
+    <TimeInfo ARRTime="1725" DEPTime="1725" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1740" DEPTime="1741" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1758" DEPTime="1800" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1811" DEPTime="1812" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1821" DEPTime="1824" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1834" DEPTime="1836" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1854" DEPTime="1856" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1907" DEPTime="1908" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1918" DEPTime="1920" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1931" DEPTime="1932" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1939" DEPTime="1942" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1950" DEPTime="1950" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="849">
+    <TimeInfo ARRTime="1800" DEPTime="1800" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1808" DEPTime="1811" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1818" DEPTime="1819" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1832" DEPTime="1834" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1845" DEPTime="1847" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1857" DEPTime="1858" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="1915" DEPTime="1917" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1927" DEPTime="1930" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1939" DEPTime="1941" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1954" DEPTime="1955" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2011" DEPTime="2013" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2025" DEPTime="2025" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="850">
+    <TimeInfo ARRTime="1825" DEPTime="1825" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1840" DEPTime="1841" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1858" DEPTime="1900" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="1911" DEPTime="1912" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="1921" DEPTime="1924" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="1934" DEPTime="1936" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="1954" DEPTime="1956" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2007" DEPTime="2008" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2018" DEPTime="2020" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2031" DEPTime="2032" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2039" DEPTime="2042" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2050" DEPTime="2050" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="853">
+    <TimeInfo ARRTime="1900" DEPTime="1900" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="1908" DEPTime="1911" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1918" DEPTime="1919" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="1932" DEPTime="1934" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="1945" DEPTime="1947" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="1957" DEPTime="1958" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2015" DEPTime="2017" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2027" DEPTime="2030" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="2040" DEPTime="2041" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="2054" DEPTime="2055" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2111" DEPTime="2113" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2125" DEPTime="2125" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="854">
+    <TimeInfo ARRTime="1925" DEPTime="1925" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="1940" DEPTime="1941" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="1958" DEPTime="2000" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2011" DEPTime="2012" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="2023" DEPTime="2024" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="2034" DEPTime="2036" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2054" DEPTime="2056" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2107" DEPTime="2108" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2118" DEPTime="2120" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2131" DEPTime="2132" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2139" DEPTime="2142" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2150" DEPTime="2150" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="857">
+    <TimeInfo ARRTime="2000" DEPTime="2000" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2008" DEPTime="2011" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2018" DEPTime="2019" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2032" DEPTime="2034" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2045" DEPTime="2047" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2057" DEPTime="2058" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2115" DEPTime="2117" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2127" DEPTime="2130" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="2140" DEPTime="2141" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="2154" DEPTime="2155" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2211" DEPTime="2213" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2225" DEPTime="2225" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="858">
+    <TimeInfo ARRTime="2025" DEPTime="2025" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2040" DEPTime="2041" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2058" DEPTime="2100" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2111" DEPTime="2112" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="2123" DEPTime="2124" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="2134" DEPTime="2136" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2154" DEPTime="2156" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2207" DEPTime="2208" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2218" DEPTime="2220" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2231" DEPTime="2232" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2239" DEPTime="2242" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2250" DEPTime="2250" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="861">
+    <TimeInfo ARRTime="2100" DEPTime="2100" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="2108" DEPTime="2111" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2118" DEPTime="2119" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2132" DEPTime="2134" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2145" DEPTime="2147" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2157" DEPTime="2158" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2215" DEPTime="2217" Order="7" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2227" DEPTime="2230" Order="8" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="2240" DEPTime="2241" Order="9" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="2254" DEPTime="2255" Order="10" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2311" DEPTime="2313" Order="11" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2325" DEPTime="2325" Order="12" Station="1070" StationCode="75" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="862">
+    <TimeInfo ARRTime="2130" DEPTime="2130" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="2143" DEPTime="2144" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="2202" DEPTime="2203" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="2215" DEPTime="2216" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="2227" DEPTime="2228" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="2238" DEPTime="2240" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="2259" DEPTime="2300" Order="7" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="2311" DEPTime="2312" Order="8" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="2323" DEPTime="2325" Order="9" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="2336" DEPTime="2337" Order="10" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="2344" DEPTime="2347" Order="11" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="2355" DEPTime="2355" Order="12" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="1202">
+    <TimeInfo ARRTime="0625" DEPTime="0625" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0637" DEPTime="0638" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0655" DEPTime="0657" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0719" DEPTime="0721" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0804" DEPTime="0807" Order="5" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0815" DEPTime="0815" Order="6" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="1210">
+    <TimeInfo ARRTime="0815" DEPTime="0815" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0827" DEPTime="0828" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0906" DEPTime="0908" Order="3" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0946" DEPTime="0947" Order="4" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0954" DEPTime="0957" Order="5" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="1005" DEPTime="1005" Order="6" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="1302">
+    <TimeInfo ARRTime="0645" DEPTime="0645" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0658" DEPTime="0659" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0717" DEPTime="0719" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0730" DEPTime="0732" Order="4" Station="1047" StationCode="50" />
+    <TimeInfo ARRTime="0741" DEPTime="0742" Order="5" Station="1043" StationCode="45" />
+    <TimeInfo ARRTime="0751" DEPTime="0753" Order="6" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0835" DEPTime="0836" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0844" DEPTime="0847" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0855" DEPTime="0855" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="1504">
+    <TimeInfo ARRTime="0645" DEPTime="0645" Order="1" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0704" DEPTime="0705" Order="2" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0717" DEPTime="0719" Order="3" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0733" DEPTime="0735" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0746" DEPTime="0747" Order="5" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0754" DEPTime="0757" Order="6" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0805" DEPTime="0805" Order="7" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="0" Note="" Train="1505">
+    <TimeInfo ARRTime="0725" DEPTime="0725" Order="1" Station="0990" StationCode="05" />
+    <TimeInfo ARRTime="0733" DEPTime="0736" Order="2" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0745" DEPTime="0746" Order="3" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0759" DEPTime="0801" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0811" DEPTime="0812" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0823" DEPTime="0825" Order="6" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0842" DEPTime="0842" Order="7" Station="1040" StationCode="40" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="1508">
+    <TimeInfo ARRTime="0705" DEPTime="0705" Order="1" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0724" DEPTime="0725" Order="2" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0736" DEPTime="0738" Order="3" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0749" DEPTime="0751" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0804" DEPTime="0805" Order="5" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0813" DEPTime="0816" Order="6" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0825" DEPTime="0825" Order="7" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="1510">
+    <TimeInfo ARRTime="0717" DEPTime="0717" Order="1" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0735" DEPTime="0737" Order="2" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0749" DEPTime="0750" Order="3" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0801" DEPTime="0803" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0815" DEPTime="0816" Order="5" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0824" DEPTime="0827" Order="6" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0835" DEPTime="0835" Order="7" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="1514">
+    <TimeInfo ARRTime="0804" DEPTime="0804" Order="1" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0822" DEPTime="0824" Order="2" Station="1035" StationCode="30" />
+    <TimeInfo ARRTime="0838" DEPTime="0839" Order="3" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0849" DEPTime="0851" Order="4" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0904" DEPTime="0905" Order="5" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0913" DEPTime="0916" Order="6" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0925" DEPTime="0925" Order="7" Station="0990" StationCode="05" />
+  </TrainInfo>
+  <TrainInfo LineDir="1" Note="" Train="1602">
+    <TimeInfo ARRTime="0640" DEPTime="0640" Order="1" Station="1070" StationCode="75" />
+    <TimeInfo ARRTime="0652" DEPTime="0653" Order="2" Station="1060" StationCode="65" />
+    <TimeInfo ARRTime="0710" DEPTime="0712" Order="3" Station="1050" StationCode="55" />
+    <TimeInfo ARRTime="0738" DEPTime="0740" Order="4" Station="1040" StationCode="40" />
+    <TimeInfo ARRTime="0803" DEPTime="0805" Order="5" Station="1030" StationCode="25" />
+    <TimeInfo ARRTime="0816" DEPTime="0818" Order="6" Station="1020" StationCode="20" />
+    <TimeInfo ARRTime="0830" DEPTime="0831" Order="7" Station="1010" StationCode="15" />
+    <TimeInfo ARRTime="0839" DEPTime="0842" Order="8" Station="1000" StationCode="10" />
+    <TimeInfo ARRTime="0850" DEPTime="0850" Order="9" Station="0990" StationCode="05" />
+  </TrainInfo>
+</TWHSRTrainList>

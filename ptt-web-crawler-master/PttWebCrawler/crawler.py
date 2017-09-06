@@ -88,12 +88,13 @@ class PttWebCrawler(object):
             self.store(filename, u']}', 'a')
             return filename
 
-    def parse_article(self, article_id, board, path='.'):
+    def parse_article(self, article_id, board, path='public'):
         link = self.PTT_URL + '/bbs/' + board + '/' + article_id + '.html'
-        filename = board + '-' + article_id + '.json'
+        # filename = board + '-' + article_id + '.json'
+        filename = 'db.json'
         filename = os.path.join(path, filename)
         json = self.parse(link, article_id, board)
-        self.store(filename, json, 'w')
+        self.store(filename, json, 'w+')
         return filename
 
     @staticmethod
@@ -146,6 +147,7 @@ class PttWebCrawler(object):
 
         # push messages
         p, b, n = 0, 0, 0
+        count = 0;
         messages = []
         for push in pushes:
             if not push.find('span', 'push-tag'):
@@ -156,7 +158,8 @@ class PttWebCrawler(object):
             push_content = push.find('span', 'push-content').strings
             push_content = ' '.join(push_content)[1:].strip(' \t\n\r')  # remove ':'
             push_ipdatetime = push.find('span', 'push-ipdatetime').string.strip(' \t\n\r')
-            messages.append( {'push_tag': push_tag, 'push_userid': push_userid, 'push_content': push_content, 'push_ipdatetime': push_ipdatetime} )
+            count += 1
+            messages.append( {'id': count, 'push_tag': push_tag, 'push_userid': push_userid, 'push_content': push_content, 'push_ipdatetime': push_ipdatetime} )
             if push_tag == u'推':
                 p += 1
             elif push_tag == u'噓':
@@ -171,16 +174,19 @@ class PttWebCrawler(object):
         # print 'mscounts', message_count
 
         # json data
+        # data = {
+        #     'url': link,
+        #     'board': board,
+        #     'article_id': article_id,
+        #     'article_title': title,
+        #     'author': author,
+        #     'date': date,
+        #     'content': content,
+        #     'ip': ip,
+        #     'message_conut': message_count,
+        #     'messages': messages
+        # }
         data = {
-            'url': link,
-            'board': board,
-            'article_id': article_id,
-            'article_title': title,
-            'author': author,
-            'date': date,
-            'content': content,
-            'ip': ip,
-            'message_conut': message_count,
             'messages': messages
         }
         # print 'original:', d

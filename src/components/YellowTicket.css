@@ -1,0 +1,37 @@
+.YellowTicket {
+  display: flex;
+  flex-direction: column;
+  padding: 90px 20px 20px 60px;
+  font-size: 3em;
+  background-image: url("../images/yellow_ticket.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  width: 1015px;
+  height: 380px; }
+  .YellowTicket .YellowTicket-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 2em; }
+    .YellowTicket .YellowTicket-row .YellowTicket-date, .YellowTicket .YellowTicket-row .YellowTicket-train-no {
+      flex: 1;
+      font-weight: bold; }
+    .YellowTicket .YellowTicket-row .YellowTicket-train-no {
+      padding-left: 10px;
+      margin-right: 50px; }
+    .YellowTicket .YellowTicket-row .YellowTicket-station-start, .YellowTicket .YellowTicket-row .YellowTicket-station-end {
+      padding-right: 50px;
+      font-size: 1.5em; }
+    .YellowTicket .YellowTicket-row .YellowTicket-station-start {
+      padding-left: 10px; }
+    .YellowTicket .YellowTicket-row .YellowTicket-station-end {
+      padding-left: 130px; }
+    .YellowTicket .YellowTicket-row .YellowTicket-station-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 1;
+      color: #595959;
+      line-height: 1.5em;
+      font-weight: bold;
+      padding-top: 20px; }

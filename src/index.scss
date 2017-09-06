@@ -1,0 +1,31 @@
+@font-face {
+  font-family: MSJH;
+  src: url(./fonts/msjh.ttf) format('truetype');
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  // font-family: sans-serif;
+  font-family: 'MSJH', sans-serif;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+
+*{
+	box-sizing: border-box;
+	&::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+			 
+	&::-webkit-scrollbar-track {
+		background: rgba(200, 200, 200, 0.6);
+	}
+			 
+	&::-webkit-scrollbar-thumb {
+		background: #666; 
+	}
+}
