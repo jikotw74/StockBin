@@ -133,12 +133,18 @@ class App extends Component {
                 }
             }    
         });
-        // data.forEach(item => item.messages = item.messages.sort((a, b) => { b.push_ipdatetime - a.push_ipdatetime}));
+        data.forEach(item => item.messages = item.messages.sort((a, b) => { 
+            const bench = s => {
+                const sArray = s.split(' ')[1].split(":");
+                return (sArray[0]*60) + (sArray[1]*1);
+            }
+            return bench(b.ipdatetime) - bench(a.ipdatetime)
+        }));
         return data.sort((a, b) => b.messages.length - a.messages.length);
     }
 
     createStockElement = (stock, index) => {
-        const messages = stock.messages.sort((a, b) => b.id - a.id);
+        const messages = stock.messages;
         return <div key={index} className='stock-element'>
             <div className='stock-element-header'>
                 <div className='stock-element-name'>{"#"+stock.stock_id}</div>
@@ -150,7 +156,7 @@ class App extends Component {
                 {messages.map((item, index) => (
                     <div key={index} className='stock-element-msg'>
                         <div className='stock-msg-userid'>{item.userid}</div>
-                        <div className='stock-msg-content'>{item.content}</div>
+                        <div className='stock-msg-content'>{item.content.substr(1)}</div>
                         <div className='stock-msg-date'>{item.ipdatetime.split(' ')[1]}</div>
                     </div>
                 ))}
