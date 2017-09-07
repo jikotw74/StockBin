@@ -40,7 +40,7 @@ class App extends Component {
     // }
 
     componentWillMount() {
-        this.props.dispatchMessagesGet();
+        this.props.dispatchDbGet();
     }
 
     parseMessages = messages => {
@@ -70,7 +70,7 @@ class App extends Component {
         const messages = stock.messages.sort((a, b) => b.id - a.id);
         return <div key={index} className='stock-element'>
             <div className='stock-element-header'>
-                <div className='stock-element-name'>{stock.stock_id}</div>
+                <div className='stock-element-name'>{"#"+stock.stock_id}</div>
                 <div className='stock-element-keys'>
                     {DATASET[stock.stock_id].keys.map( (name, index) => <div key={index} className='stock-element-key'>{name}</div>)}
                 </div>
@@ -78,7 +78,7 @@ class App extends Component {
             <div className='stock-element-msg-list'>
                 {messages.map(item => (
                     <div key={item.id} className='stock-element-msg'>
-                        <div className='stock-msg-date'>{item.push_ipdatetime}</div>
+                        <div className='stock-msg-date'>{item.push_ipdatetime.split(' ')[1]}</div>
                         <div className='stock-msg-content'>{item.push_content}</div>
                     </div>
                 ))}
@@ -87,26 +87,30 @@ class App extends Component {
     }
 
     render() {
-        const {messagesFetch} = this.props;
-        console.log(messagesFetch);
+        const {dbFetch} = this.props;
+        console.log(dbFetch);
         let className = 'App';
 
-        if (messagesFetch.rejected) {
+        if (dbFetch.rejected) {
             return <div>Oops... Could not fetch!</div>
         }
  
-        if (messagesFetch.fulfilled) {
-            const messages = messagesFetch.value.messages;
+        if (dbFetch.fulfilled) {
+            const messages = dbFetch.value.messages;
+            const polling = dbFetch.value.polling;
             const stocks = this.parseMessages(messages);
             const children = stocks.map( (stock, index) => {
                 return this.createStockElement(stock, index);
             });
 
             return <div className={className}>
-                {children}
+                <div className='stock-list'>
+                    {children}
+                </div>
+                <div id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>
             </div>
         }
- 
+
         return <div>Loading...</div>;
     }
 }
@@ -117,7 +121,7 @@ class App extends Component {
 
 
 export default connect([{
-    resource: 'messages',
+    resource: 'db',
     request: {
         // url: 'http://localhost:8082/messages/'
         url: 'db.json'

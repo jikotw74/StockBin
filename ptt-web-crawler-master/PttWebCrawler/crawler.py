@@ -110,6 +110,7 @@ class PttWebCrawler(object):
         author = ''
         title = ''
         date = ''
+        
         if metas:
             author = metas[0].select('span.article-meta-value')[0].string if metas[0].select('span.article-meta-value')[0] else author
             title = metas[1].select('span.article-meta-value')[0].string if metas[1].select('span.article-meta-value')[0] else title
@@ -186,8 +187,13 @@ class PttWebCrawler(object):
         #     'message_conut': message_count,
         #     'messages': messages
         # }
+
+        article_polling = soup.find(id="article-polling")
+        #print(article_polling.attrs)
+
         data = {
-            'messages': messages
+            'messages': messages,
+            'polling': article_polling.attrs
         }
         # print 'original:', d
         return json.dumps(data, sort_keys=True, ensure_ascii=False)

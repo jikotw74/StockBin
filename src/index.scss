@@ -9,9 +9,10 @@ body {
   padding: 0;
   // font-family: sans-serif;
   font-family: 'MSJH', sans-serif;
-  overflow: auto;
   display: flex;
+  flex: 1;
   justify-content: center;
+  height: 100vh;
 }
 
 *{
