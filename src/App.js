@@ -38,7 +38,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            article: "M.1504764015.A.943",
+            article: "M.1504830606.A.0D9",
             messages: undefined,
             polling: undefined,
         };
