@@ -21,9 +21,16 @@ var ScrollElement    = Scroll.Element;
 
 class App extends Component {
     constructor(props) {
+        console.log(props);
         super(props);
+
+        let article = "M.1504830606.A.0D9";
+        if(props.match && props.match.params && props.match.params.id){
+            article = props.match.params.id;   
+        }
+        
         this.state = {
-            article: "M.1504830606.A.0D9",
+            article: article,
             messages: undefined,
             polling: undefined,
         };
@@ -96,7 +103,8 @@ class App extends Component {
     }
 
     articleChange = event => {
-        this._fetchData(event.target.value);
+        this.props.history.push("/" + event.target.value);
+        // this._fetchData(event.target.value);
     }
 
     parseMessages = messages => {
@@ -188,6 +196,8 @@ class App extends Component {
           infoStatus 
         } = this.state;
 
+        console.log(this.props.location);
+
         if (infoStatus === 'loaded') {
             const stocks = this.parseMessages(this.state.messages);
             const polling = this.state.polling;
@@ -246,43 +256,9 @@ class App extends Component {
             return <div>Loading...</div>;
         }
 
-        // const {dbFetch} = this.props;
-        // console.log(dbFetch);
-        // let className = 'App';
-
-        // if (dbFetch.rejected) {
-        //     return <div>Oops... Could not fetch!</div>
-        // }
- 
-        // if (dbFetch.fulfilled) {
-            // const messages = dbFetch.value.messages;
-            // const polling = dbFetch.value.polling;
-            // const stocks = this.parseMessages(messages);
-            // const children = stocks.map( (stock, index) => {
-            //     return this.createStockElement(stock, index);
-            // });
-
-            // return <div className={className}>
-            //     <div className='stock-list'>
-            //         {children}
-            //     </div>
-            //     <div id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>
-            // </div>
-        // }
-
-        // return <div>Loading...</div>;
     }
 }
 
 // App = connect(mapStateToProps)(App);
 App = connect()(App);
 export default App;
-
-
-// export default connect([{
-//     resource: 'db',
-//     request: {
-//         // url: 'http://localhost:8082/messages/'
-//         url: 'db.json'
-//     }
-// }])(App);

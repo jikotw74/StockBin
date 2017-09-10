@@ -29,7 +29,14 @@ const BlockAvoider = (props) => {
   // <BlockAvoider> receives the location as a prop. Any child
   // element is creates can be passed the location.
   return (
-  	<App location={props.location} history={props.history} />
+  	<div className='BlockAvoider' >
+	  	<Route path='/:id' render={p => {
+	  		return <App location={p.location} history={p.history} match={p.match} />	
+	  	}} />
+	  	<Route exact path='/' render={p => {
+	  		return <App location={p.location} history={p.history} match={p.match} />	
+	  	}} />
+  	</div>
   )
 }
 
