@@ -1,53 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-// import { connect } from 'react-redux'
-import connect from 'react-redux-fetch';
+import { connect } from 'react-redux'
+// import connect from 'react-redux-fetch';
 // import { Route } from 'react-router'
 // import { Link, Switch, Redirect } from 'react-router-dom'
 // import { updateAppSelected, openAppStartEnd, openAppDate, updateAppPickerStartEndValue, updateAppPickerDateValue, updateAppIntro, updateAppOrderTrain, updateBusiTicket } from './actions'
-// import MyPage from './components/MyPage';
-// import AppTicket from './container/AppTicket';
+
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import htmlToJson from 'html-to-json';
 import attachPoller from './utils/bbs.js'
 import $ from 'jquery'
 import TextField from 'material-ui/TextField';
+import MsgContent from './components/TextField';
+import StockHeader from './components/StockHeader';
+import keywords from './config/keywords';
+import Scroll from 'react-scroll';
 
-const DATASET = {
-    '6180':{
-        keys: ['橘子', '6180']
-    },
-    '2327':{
-        keys: ['國巨', '2327']
-    },
-    '1256':{
-        keys: ['鮮活', '1256', '果汁', '鮮活果汁']
-    },
-    '2888':{
-        keys: ['西瓜', '2888', '新光金']
-    },
-    '6116':{
-        keys: ['彩晶', '6116']
-    },
-    '3019':{
-        keys: ['亞光', '3019']
-    },
-    '2317':{
-        keys: ['鴻海', '2317', '公公', '海公公', '海公']
-    },
-    '3105':{
-        keys: ['穩懋', '3105', '穩套']
-    },
-    '2474':{
-        keys: ['可成', '2474']
-    },
-    '2337':{
-        keys: ['旺宏', '2337']
-    },
-    '3580':{
-        keys: ['友威科', '3580', '友威']
-    }
-}
+var ScrollLink   = Scroll.Link;
+var ScrollElement    = Scroll.Element;
 
 class App extends Component {
     constructor(props) {
@@ -85,7 +55,7 @@ class App extends Component {
                         return {
                             tag: $item.find('.push-tag').text(),
                             userid: $item.find('.push-userid').text(),
-                            content: $item.find('.push-content').text(),
+                            content: $item.find('.push-content').text().substr(1).trim(),
                             ipdatetime: $item.find('.push-ipdatetime').text().trim()
                         };
                     })
@@ -130,53 +100,87 @@ class App extends Component {
     }
 
     parseMessages = messages => {
-        let data = [];
+        var data = [];
+        var usedMessages = [];
+
+        const benchTime = time => {
+            const arr = time.split(' ')[1].split(":");
+            return (arr[0]*60) + (arr[1]*1);
+        }
+
+        const sortTime = (a, b) => benchTime(b.ipdatetime) - benchTime(a.ipdatetime);
+
+        const parseStock = (stock, msg) => {
+            if(!data[stock]){
+                data[stock] = {
+                    stock_id: stock,
+                    messages: []
+                };
+            }
+            usedMessages.push(msg);
+            let relatedMessages = messages.filter(message => {
+                if(usedMessages.indexOf(message) === -1 && message.userid === msg.userid){
+                    if(Math.abs(benchTime(message.ipdatetime) - benchTime(msg.ipdatetime)) <= 1){
+                        usedMessages.push(message);
+                        return true;
+                    }
+                }
+                return false;
+            });
+            relatedMessages.push(msg);
+            data[stock].messages.push({
+                userid: msg.userid,
+                ipdatetime: msg.ipdatetime,
+                content: relatedMessages.sort((a, b) => benchTime(a.ipdatetime) - benchTime(b.ipdatetime)).map(item => item.content)
+            }); 
+        }
 
         messages.forEach(msg => {
-            for(let stock in DATASET){
-                var re = new RegExp(DATASET[stock].keys.join('|'));
+            let matched = false;
 
+            // match keywords
+            for(let stock in keywords){
+                const re = new RegExp([stock].concat(keywords[stock].keys).join('|'));
                 const match = msg.content.match(re);
                 if(match){
-                    if(!data[stock]){
-                        data[stock] = {
-                            stock_id: stock,
-                            messages: []
-                        };
-                    }
-                    data[stock].messages.push(msg); 
+                    parseStock(stock, msg);
+                    matched = true;
+                    break;
                 }
             }    
-        });
-        data.forEach(item => item.messages = item.messages.sort((a, b) => { 
-            const bench = s => {
-                const sArray = s.split(' ')[1].split(":");
-                return (sArray[0]*60) + (sArray[1]*1);
+
+            // match others
+            if(matched === false){
+                const re2 = new RegExp(/.*(\d{4}).*/);
+                const match2 = msg.content.match(re2);
+                if(match2){
+                    parseStock(match2[1], msg);
+                    matched = true;
+                }
             }
-            return bench(b.ipdatetime) - bench(a.ipdatetime)
-        }));
+        });
+        data.forEach(item => item.messages = item.messages.sort(sortTime));
         return data.sort((a, b) => b.messages.length - a.messages.length);
     }
 
     createStockElement = (stock, index) => {
         const messages = stock.messages;
-        return <div key={index} className='stock-element'>
-            <div className='stock-element-header'>
-                <div className='stock-element-name'>{"#"+stock.stock_id}</div>
-                <div className='stock-element-keys'>
-                    {DATASET[stock.stock_id].keys.map( (name, index) => <div key={index} className='stock-element-key'>{name}</div>)}
+        const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
+
+        return <ScrollElement key={index} name={`stock-${stock.stock_id}`}>
+            <div className='stock-element'>
+                <StockHeader stock_id={stock.stock_id} keys={keys} />
+                <div className='stock-element-msg-list'>
+                    {messages.map((item, index) => (
+                        <div key={index} className='stock-element-msg'>
+                            <div className='stock-msg-userid'>{item.userid}</div>
+                            <MsgContent className='stock-msg-content' text={item.content}/>
+                            <div className='stock-msg-date'>{item.ipdatetime.split(' ')[1]}</div>
+                        </div>
+                    ))}
                 </div>
             </div>
-            <div className='stock-element-msg-list'>
-                {messages.map((item, index) => (
-                    <div key={index} className='stock-element-msg'>
-                        <div className='stock-msg-userid'>{item.userid}</div>
-                        <div className='stock-msg-content'>{item.content.substr(1)}</div>
-                        <div className='stock-msg-date'>{item.ipdatetime.split(' ')[1]}</div>
-                    </div>
-                ))}
-            </div>
-        </div>
+        </ScrollElement>
     }
 
     render() {
@@ -191,9 +195,39 @@ class App extends Component {
                 return this.createStockElement(stock, index);
             });
 
+            const totalMessages = stocks.reduce((previousValue, currentValue, index, array) => {
+                return previousValue + currentValue.messages.length;
+            }, 0);
+            const rankChildren = stocks.map( (stock, index) => {
+                const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
+                return (
+                    <ScrollLink 
+                        key={index} 
+                        activeClass="active" 
+                        className='rank-scroll-link'
+                        to={`stock-${stock.stock_id}`} 
+                        spy={true} 
+                        smooth={true} 
+                        offset={0}
+                        duration={500} 
+                        containerId='stockContainer'>
+                            <StockHeader 
+                                stock_id={stock.stock_id} 
+                                comments={stock.messages.length}
+                                percentage={Math.floor(stock.messages.length/totalMessages*100)}
+                                keys={keys}/>
+                    </ScrollLink>
+                )
+            });
+
             return <div className='App'>
-                <div className='stock-list'>
-                    {children}
+                <div className='main'>
+                    <div className='rank-list'>
+                        {rankChildren}
+                    </div>
+                    <div id='stockContainer' className='stock-list'>
+                        {children}
+                    </div>
                 </div>
                 <div className='footer'>
                     <TextField
@@ -241,14 +275,14 @@ class App extends Component {
 }
 
 // App = connect(mapStateToProps)(App);
-// // App = connect()(App);
-// export default App;
+App = connect()(App);
+export default App;
 
 
-export default connect([{
-    resource: 'db',
-    request: {
-        // url: 'http://localhost:8082/messages/'
-        url: 'db.json'
-    }
-}])(App);
+// export default connect([{
+//     resource: 'db',
+//     request: {
+//         // url: 'http://localhost:8082/messages/'
+//         url: 'db.json'
+//     }
+// }])(App);

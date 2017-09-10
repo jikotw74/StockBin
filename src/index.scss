@@ -12,14 +12,16 @@ body {
   display: flex;
   flex: 1;
   justify-content: center;
+  width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 *{
 	box-sizing: border-box;
 	&::-webkit-scrollbar {
-		width: 6px;
-		height: 6px;
+		width: 8px;
+		height: 8px;
 	}
 			 
 	&::-webkit-scrollbar-track {
@@ -29,4 +31,10 @@ body {
 	&::-webkit-scrollbar-thumb {
 		background: #666; 
 	}
+}
+
+#root{
+	width: 100%;
+  	height: 100%;
+  	overflow: hidden;
 }
