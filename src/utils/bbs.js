@@ -40,7 +40,6 @@ function attachPoller(div, callback) {
             timeout: 28000
         }).done(function(data, textStatus, req) {
             currReq = null;
-            console.log(data);
             lastModified = req.getResponseHeader('Last-Modified');
             etag = req.getResponseHeader('Etag');
             if (data.size > currSize) {
@@ -63,11 +62,10 @@ function attachPoller(div, callback) {
         var url = pollUrl +
             '&size=' + encodeURIComponent(lpdata.size.toString()) +
             '&size-sig=' + encodeURIComponent(lpdata.sig);
-        $.ajax(url).success(function(data) {
-            console.log(data);
+        $.ajax(url).done(function(data) {
             if (data.success) {
                 receivedPushContent(data.contentHtml);
-                pollUrl = data.pollUrl;
+                pollUrl = host + data.pollUrl;
                 scheduleNextPoll();
             } else {
                 refollow(lpdata);
@@ -90,6 +88,7 @@ function attachPoller(div, callback) {
     }
 
     function refollow(data) {
+        console.log('refollow');
         if (!data.cacheKey) {
             return;
         }

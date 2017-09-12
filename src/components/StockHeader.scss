@@ -7,7 +7,7 @@
     align-items: center;
 }
 .StockHeader-name{
-    font-size: 2em;
+    font-size: 1.3em;
     font-weight: bold;
     margin-right: 0.5em;
 }
@@ -18,8 +18,9 @@
     background-color: #2196F3;
     color: white;
     border-radius: 5px;
-    padding: 0.2em 0.5em;
-    margin: 0.3em;
+    padding: 0.2em 0.3em;
+    margin: 0.2em;
+    font-size: 0.9em;
 }
 .StockHeader-rank{
     display: flex;
@@ -28,6 +29,7 @@
 .StockHeader-rank-comments{
     color: #333;
     margin-left: 10px;
+    white-space: nowrap;
 }
 .StockHeader-rank-percentage{
     background-color: #F44336;

@@ -34,7 +34,7 @@
 .stock-list {
   display: flex;
   flex-direction: column;
-  flex: 4;
+  flex: 1;
   overflow: auto;
   background-color: #EDEDED;
 }
@@ -42,7 +42,7 @@
 .stock-element {
   border: 1px solid #CCC;
   border-radius: 5px;
-  margin: 20px 40px 10px 40px;
+  margin: 20px 20px 10px 20px;
   padding: 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
@@ -57,28 +57,8 @@
   max-height: 50vh;
 }
 
-.stock-element-msg {
-  display: flex;
-  flex-shrink: 0;
-  border-top: 1px solid #CCC;
-  line-height: 1.5em;
+.stock-element-msg-list .StockMessage {
   width: 100%;
-}
-
-.stock-msg-date {
-  color: #999;
-  margin-right: 0.5em;
-  font-size: 0.8em;
-}
-
-.stock-msg-userid {
-  width: 120px;
-}
-
-.stock-msg-content {
-  flex: 1;
-  padding-right: 0.3em;
-  max-width: 20vw;
 }
 
 .rank-list {
@@ -129,4 +109,15 @@
   content: "";
   height: 80vh;
   width: 1px;
+}
+
+.all-msg-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.all-msg-list .StockMessage {
+  padding: 0 0.5em;
 }
