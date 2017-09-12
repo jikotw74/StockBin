@@ -94,11 +94,8 @@
 #stockContainer{
     position: relative;
     overflow: auto;
-    padding-bottom: 100vh;
-    &:after{
-        content: "";
-        height: 80vh;
-        width: 1px;
+    >div:last-child{
+        padding-bottom: 80vh;
     }
 }
 
@@ -107,7 +104,5 @@
     flex-direction: column;
     overflow-y: auto;
     flex: 1;
-    .StockMessage{
-        padding: 0 0.5em;
-    }
+    padding: 0 1em;
 }

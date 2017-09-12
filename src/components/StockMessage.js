@@ -23,6 +23,7 @@ class StockMessage extends Component {
 
     return (
         <div className={className}>
+            {this.props.index && <div className='StockMessage-index'>{this.props.index}</div>}
             {this.props.userid && <div className='StockMessage-userid'>{this.props.userid}</div>}
             {this.props.content && <TextField className='StockMessage-content' text={this.props.content}/>}
             {this.props.ipdatetime && <div className='StockMessage-date'>{this.props.ipdatetime}</div>}

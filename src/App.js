@@ -140,16 +140,15 @@ class App extends Component {
         // this._fetchData(event.target.value);
     }
 
-    parseMessages = messages => {
-        const benchTime = time => {
-            const arr = time.split(' ')[1].split(":");
-            return (arr[0]*60) + (arr[1]*1);
-        }
+    benchTime = time => {
+        const arr = time.split(' ')[1].split(":");
+        return (arr[0]*60) + (arr[1]*1);
+    }
 
+    parseMessages = messages => {
         // set tags
-        // messages = messages.sort((a, b) => benchTime(b.ipdatetime) - benchTime(a.ipdatetime));
+        messages = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime));
         messages.forEach(msg => {
-            let matched = false;
             msg.idTags = [];
             msg.keyTags = [];
 
@@ -187,7 +186,7 @@ class App extends Component {
             stockMessages.map(msg => {
                 let relatedMessages = messages.filter(message => {
                     if(message.userid === msg.userid){
-                        if(Math.abs(benchTime(message.ipdatetime) - benchTime(msg.ipdatetime)) <= 1){
+                        if(Math.abs(this.benchTime(message.ipdatetime) - this.benchTime(msg.ipdatetime)) <= 1){
                             return true;
                         }
                     }
@@ -198,14 +197,14 @@ class App extends Component {
                 return {
                     userid: msg.userid,
                     ipdatetime: msg.ipdatetime,
-                    content: relatedMessages.sort((a, b) => benchTime(a.ipdatetime) - benchTime(b.ipdatetime)).map(item => item.content)
+                    content: relatedMessages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime)).map(item => item.content)
                 }
             });
 
             // stock data obj
             return {
                 stock_id: stock_id,
-                messages: stockMessages.sort((a, b) => benchTime(b.ipdatetime) - benchTime(a.ipdatetime))
+                messages: stockMessages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime))
             }
         });
 
@@ -258,7 +257,7 @@ class App extends Component {
                 const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
                 return (
                     <ScrollLink 
-                        key={index} 
+                        key={'rank-'+index} 
                         activeClass="active" 
                         className='rank-scroll-link'
                         to={`stock-${stock.stock_id}`} 
@@ -276,20 +275,22 @@ class App extends Component {
                 )
             });
 
-            const msgChildren = this.state.messages.sort()
+            // const allMessages = this.state.messages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime))
+            const msgChildren = this.state.messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime))
                 .map( (msg, index) => {
                 return (
                     <ScrollLink 
-                        key={index} 
-                        activeClass="active" 
-                        className='rank-scroll-link'
+                        key={'msg-'+index} 
+                        // activeClass="active" 
+                        // className='rank-scroll-link'
                         to={`stock-${msg.idTags[0]}`} 
-                        spy={true} 
+                        // spy={true} 
                         smooth={true} 
                         offset={0}
                         duration={500} 
                         containerId='stockContainer'>
                             <StockMessage
+                                index={index+1}
                                 userid={msg.userid}
                                 content={msg.content}
                                 ipdatetime={msg.ipdatetime.split(' ')[1]}
