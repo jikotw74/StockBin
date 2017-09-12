@@ -12,7 +12,6 @@ class StockHeader extends Component {
   render() {
     let className = "StockHeader";
     if(this.props.selected)className += " selected";
-    const stock = this.props.stock;
     const percentage = this.props.percentage || 0;
     const comments = this.props.comments;
 

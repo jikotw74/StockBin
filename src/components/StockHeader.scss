@@ -24,6 +24,7 @@
 .StockHeader-rank{
     display: flex;
     flex: 1;
+    min-width: 150px;
 }
 .StockHeader-rank-comments{
     color: #333;

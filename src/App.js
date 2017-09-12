@@ -33,6 +33,7 @@ class App extends Component {
             article: article,
             messages: undefined,
             polling: undefined,
+            $polling: false
         };
     };
 
@@ -90,16 +91,48 @@ class App extends Component {
         })
     };
 
+    _attachPoller = () => {
+        if(this.state.$polling === false){
+            let main = this;
+            const $polling = $('#article-polling');
+            this.setState({
+                $polling: $polling
+            }, () => {
+                attachPoller(this.state.$polling, (content) => {
+                    htmlToJson.parse(content, {
+                        'messages': function ($doc) {
+                            // console.log(this);
+                            return this.map('.push', function($item, index){
+                                return {
+                                    tag: $item.find('.push-tag').text(),
+                                    userid: $item.find('.push-userid').text(),
+                                    content: $item.find('.push-content').text().substr(1).trim(),
+                                    ipdatetime: $item.find('.push-ipdatetime').text().trim()
+                                };
+                            })
+                        }
+                    })
+                    .then(function(data){
+                        // console.log(main.state.messages.concat(data));
+                        main.setState({
+                            messages: main.state.messages.concat(data)
+                        });
+                    });
+                });
+            });
+        }
+    }
+
     componentWillMount() {
         this._fetchData();
     }
 
     componentDidUpdate(){
-        setTimeout(() => attachPoller($('#article-polling'), (content) => console.log(content)), 3000);
+        setTimeout(() => this._attachPoller(), 3000);
     }
 
     componentDidMount() {
-        setTimeout(() => attachPoller($('#article-polling'), (content) => console.log(content)), 3000);
+        setTimeout(() => this._attachPoller(), 3000);
     }
 
     articleChange = event => {
@@ -196,7 +229,7 @@ class App extends Component {
           infoStatus 
         } = this.state;
 
-        console.log(this.props.location);
+        // console.log(this.props.location);
 
         if (infoStatus === 'loaded') {
             const stocks = this.parseMessages(this.state.messages);
