@@ -1,0 +1,53 @@
+.StockMessage{
+	display: flex;
+	flex-shrink: 0;
+	line-height: 1.5em;
+	border-top: 1px solid #CCC;
+
+	&.has-tags{
+		cursor: pointer;
+		&:hover{
+			background-color: #E3F2FD;
+		}
+	}
+}
+.StockMessage-date{
+    color: #999;
+    margin-right: 0.5em;
+    font-size: 0.8em;
+}
+.StockMessage-userid{
+    width: 120px;
+}
+.StockMessage-content{
+    padding-right: 0.3em;
+    width: 250px;
+    word-break: break-all;
+}
+.StockMessage-idTags{
+	display: flex;
+}
+.StockMessage-idTag {
+    border-radius: 5px;
+    padding: 0.2em 0.5em;
+    margin: 0.3em;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    background-color: #DDD;
+    &:before{
+    	content: "#";
+    }
+}
+.StockMessage-keyTags{
+	display: flex;
+}
+.StockMessage-keyTag {
+    background-color: #2196F3;
+    color: white;
+    border-radius: 5px;
+    padding: 0.2em 0.5em;
+    margin: 0.3em;
+    font-size: 0.8em;
+}

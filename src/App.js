@@ -11,7 +11,7 @@ import htmlToJson from 'html-to-json';
 import attachPoller from './utils/bbs.js'
 import $ from 'jquery'
 import TextField from 'material-ui/TextField';
-import MsgContent from './components/TextField';
+import StockMessage from './components/StockMessage';
 import StockHeader from './components/StockHeader';
 import keywords from './config/keywords';
 import Scroll from 'react-scroll';
@@ -141,67 +141,75 @@ class App extends Component {
     }
 
     parseMessages = messages => {
-        var data = [];
-        var usedMessages = [];
-
         const benchTime = time => {
             const arr = time.split(' ')[1].split(":");
             return (arr[0]*60) + (arr[1]*1);
         }
 
-        const sortTime = (a, b) => benchTime(b.ipdatetime) - benchTime(a.ipdatetime);
-
-        const parseStock = (stock, msg) => {
-            if(!data[stock]){
-                data[stock] = {
-                    stock_id: stock,
-                    messages: []
-                };
-            }
-            usedMessages.push(msg);
-            let relatedMessages = messages.filter(message => {
-                if(usedMessages.indexOf(message) === -1 && message.userid === msg.userid){
-                    if(Math.abs(benchTime(message.ipdatetime) - benchTime(msg.ipdatetime)) <= 1){
-                        usedMessages.push(message);
-                        return true;
-                    }
-                }
-                return false;
-            });
-            relatedMessages.push(msg);
-            data[stock].messages.push({
-                userid: msg.userid,
-                ipdatetime: msg.ipdatetime,
-                content: relatedMessages.sort((a, b) => benchTime(a.ipdatetime) - benchTime(b.ipdatetime)).map(item => item.content)
-            }); 
-        }
-
+        // set tags
+        // messages = messages.sort((a, b) => benchTime(b.ipdatetime) - benchTime(a.ipdatetime));
         messages.forEach(msg => {
             let matched = false;
+            msg.idTags = [];
+            msg.keyTags = [];
 
             // match keywords
-            for(let stock in keywords){
-                const re = new RegExp([stock].concat(keywords[stock].keys).join('|'));
+            for(let stock_id in keywords){
+                const re = new RegExp(keywords[stock_id].keys.join('|'));
                 const match = msg.content.match(re);
-                if(match){
-                    parseStock(stock, msg);
-                    matched = true;
-                    break;
+                if(match && msg.keyTags.indexOf(match[0]) === -1){
+                    msg.keyTags.push(match[0]);
+                    if(msg.idTags.indexOf(stock_id) === -1){
+                        msg.idTags.push(stock_id);
+                    }
                 }
             }    
 
-            // match others
-            if(matched === false){
-                const re2 = new RegExp(/.*(\d{4}).*/);
-                const match2 = msg.content.match(re2);
-                if(match2){
-                    parseStock(match2[1], msg);
-                    matched = true;
-                }
+            // match id
+            const re2 = new RegExp(/.*(\d{4}).*/);
+            const match2 = msg.content.match(re2);
+            if(match2 && msg.idTags.indexOf(match2[1]) === -1){
+                msg.idTags.push(match2[1]);
             }
         });
-        data.forEach(item => item.messages = item.messages.sort(sortTime));
-        return data.sort((a, b) => b.messages.length - a.messages.length);
+
+        let allStockIds = [];
+        messages.forEach(msg => {
+            msg.idTags.forEach(id => {
+                if(allStockIds.indexOf(id) === -1){
+                    allStockIds.push(id);
+                }
+            })
+        });
+
+        let allStock = allStockIds.map(stock_id => {
+            let stockMessages = messages.filter(msg => msg.idTags.indexOf(stock_id) !== -1);
+            stockMessages.map(msg => {
+                let relatedMessages = messages.filter(message => {
+                    if(message.userid === msg.userid){
+                        if(Math.abs(benchTime(message.ipdatetime) - benchTime(msg.ipdatetime)) <= 1){
+                            return true;
+                        }
+                    }
+                    return false;
+                });
+
+                // stock msg obj
+                return {
+                    userid: msg.userid,
+                    ipdatetime: msg.ipdatetime,
+                    content: relatedMessages.sort((a, b) => benchTime(a.ipdatetime) - benchTime(b.ipdatetime)).map(item => item.content)
+                }
+            });
+
+            // stock data obj
+            return {
+                stock_id: stock_id,
+                messages: stockMessages.sort((a, b) => benchTime(b.ipdatetime) - benchTime(a.ipdatetime))
+            }
+        });
+
+        return allStock.sort((a, b) => b.messages.length - a.messages.length);
     }
 
     createStockElement = (stock, index) => {
@@ -213,11 +221,13 @@ class App extends Component {
                 <StockHeader stock_id={stock.stock_id} keys={keys} />
                 <div className='stock-element-msg-list'>
                     {messages.map((item, index) => (
-                        <div key={index} className='stock-element-msg'>
-                            <div className='stock-msg-userid'>{item.userid}</div>
-                            <MsgContent className='stock-msg-content' text={item.content}/>
-                            <div className='stock-msg-date'>{item.ipdatetime.split(' ')[1]}</div>
-                        </div>
+                        <StockMessage
+                            key={index}
+                            userid={item.userid}
+                            content={item.content}
+                            ipdatetime={item.ipdatetime.split(' ')[1]}
+                        >
+                        </StockMessage>
                     ))}
                 </div>
             </div>
@@ -229,18 +239,21 @@ class App extends Component {
           infoStatus 
         } = this.state;
 
-        // console.log(this.props.location);
 
         if (infoStatus === 'loaded') {
             const stocks = this.parseMessages(this.state.messages);
             const polling = this.state.polling;
-            const children = stocks.map( (stock, index) => {
+            const stockChildren = stocks.map( (stock, index) => {
                 return this.createStockElement(stock, index);
             });
 
-            const totalMessages = stocks.reduce((previousValue, currentValue, index, array) => {
-                return previousValue + currentValue.messages.length;
-            }, 0);
+            let totalMessages = 0;
+            stocks.forEach(stock => {
+                const l = stock.messages.length;
+                if(l > totalMessages) {
+                    totalMessages = l;
+                }
+            });
             const rankChildren = stocks.map( (stock, index) => {
                 const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
                 return (
@@ -257,8 +270,33 @@ class App extends Component {
                             <StockHeader 
                                 stock_id={stock.stock_id} 
                                 comments={stock.messages.length}
-                                percentage={Math.floor(stock.messages.length/totalMessages*100)}
+                                percentage={Math.floor(stock.messages.length/totalMessages*70)}
                                 keys={keys}/>
+                    </ScrollLink>
+                )
+            });
+
+            const msgChildren = this.state.messages.sort()
+                .map( (msg, index) => {
+                return (
+                    <ScrollLink 
+                        key={index} 
+                        activeClass="active" 
+                        className='rank-scroll-link'
+                        to={`stock-${msg.idTags[0]}`} 
+                        spy={true} 
+                        smooth={true} 
+                        offset={0}
+                        duration={500} 
+                        containerId='stockContainer'>
+                            <StockMessage
+                                userid={msg.userid}
+                                content={msg.content}
+                                ipdatetime={msg.ipdatetime.split(' ')[1]}
+                                idTags={msg.idTags}
+                                keyTags={msg.keyTags}
+                            >
+                            </StockMessage>
                     </ScrollLink>
                 )
             });
@@ -269,7 +307,10 @@ class App extends Component {
                         {rankChildren}
                     </div>
                     <div id='stockContainer' className='stock-list'>
-                        {children}
+                        {stockChildren}
+                    </div>
+                    <div className='all-msg-list'>
+                        {msgChildren}
                     </div>
                 </div>
                 <div className='footer'>

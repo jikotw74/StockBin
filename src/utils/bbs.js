@@ -9,7 +9,6 @@ var ErrNetwork = '無法更新推文';
 var host = 'https://www.ptt.cc';
 
 function attachPoller(div, callback) {
-    console.log(div);
     var timer = null;
     var autoScroll = false;
     var autoUpdate = false;
