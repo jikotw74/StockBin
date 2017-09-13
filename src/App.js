@@ -144,6 +144,10 @@ class App extends Component {
     }
 
     benchTime = time => {
+        if(time.length === 0){
+            console.warn('benchTime is empty', time);
+            time = "0000 00:00";
+        }
         const arr = time.split(' ')[1].split(":");
         return (arr[0]*60) + (arr[1]*1);
     }
@@ -243,7 +247,8 @@ class App extends Component {
 
 
         if (infoStatus === 'loaded') {
-            const stocks = this.parseMessages(this.state.messages);
+            const messages = this.state.messages.filter(msg => msg.userid !== "");
+            const stocks = this.parseMessages(messages);
             const polling = this.state.polling;
             const stockChildren = stocks.map( (stock, index) => {
                 return this.createStockElement(stock, index);
@@ -279,7 +284,7 @@ class App extends Component {
             });
 
             // const allMessages = this.state.messages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime))
-            const msgChildren = this.state.messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime))
+            const msgChildren = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime))
                 .map( (msg, index) => {
                 return (
                     <ScrollLink 
