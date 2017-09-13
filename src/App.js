@@ -15,6 +15,13 @@ import StockMessage from './components/StockMessage';
 import StockHeader from './components/StockHeader';
 import keywords from './config/keywords';
 import Scroll from 'react-scroll';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import IconSearch from 'material-ui/svg-icons/action/search';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+// import LinearProgress from 'material-ui/LinearProgress';
+
 
 var ScrollLink   = Scroll.Link;
 var ScrollElement    = Scroll.Element;
@@ -33,7 +40,9 @@ class App extends Component {
             article: article,
             messages: undefined,
             polling: undefined,
-            $polling: false
+            $polling: false,
+            openSearchDialog: false,
+            searchArticleValue: "",
         };
     };
 
@@ -70,7 +79,10 @@ class App extends Component {
                 },
                 'polling': function ($doc) {
                     return $doc.find('#article-polling');
-                }
+                },
+                'meta': function ($doc) {
+                    return $doc.find('.article-metaline');
+                }                
             });
         })
         .then( function(data) {
@@ -80,7 +92,8 @@ class App extends Component {
                     article: query,
                     infoStatus: 'loaded',
                     messages: data.messages,
-                    polling: data.polling[0].attribs
+                    polling: data.polling[0].attribs,
+                    article_title: data.meta[1].children[1].children[0].data
                 });
             }, 300);
         })
@@ -240,6 +253,28 @@ class App extends Component {
         </ScrollElement>
     }
 
+    openSearchDialog = () => {
+        this.setState({
+            openSearchDialog: true
+        });
+    }
+
+    closeSearchDialog = () => {
+        this.setState({
+            openSearchDialog: false
+        });
+    }
+
+    searchArticleValueChange = event => {
+        this.setState({
+            searchArticleValue: event.target.value
+        });
+    }
+
+    searchArticle = event => {
+        this.props.history.push("/" + this.state.searchArticleValue);
+    }
+
     render() {
         const { 
           infoStatus 
@@ -310,7 +345,49 @@ class App extends Component {
                 )
             });
 
+            const topChildren = [];
+            // topChildren.push(<TextField
+            //                     key={1}
+            //                     id="stock-article"
+            //                     className="stock-input"
+            //                     value={this.state.article}
+            //                     onChange={this.articleChange}
+            //                     hintText="文章ID"
+            //                 />);
+            topChildren.push(<div key={2} id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>);
+
+            const dialogSearchActions = [
+                <FlatButton
+                    label="取消"
+                    onTouchTap={this.closeSearchDialog}
+                />,
+                <FlatButton
+                    label="完成"
+                    primary={true}
+                    onTouchTap={this.searchArticle}
+                />,
+            ];
+
+            const dialogSearchChildren = (
+                <TextField
+                    id="stock-article"
+                    className="stock-input"
+                    value={this.state.searchArticleValue}
+                    onChange={this.searchArticleValueChange}
+                    hintText="文章ID"
+                />
+            );
+
             return <div className='App'>
+                <div className="TopBar">
+                    <AppBar
+                        title={this.state.article_title}
+                        // iconClassNameRight="material-icons muidocs-icon-navigation-expand-more"
+                        onLeftIconButtonTouchTap={this.openSearchDialog}
+                        iconElementLeft={<IconButton><IconSearch /></IconButton>}
+                        children={topChildren}
+                    />
+                </div>
                 <div className='main'>
                     <div className='rank-list'>
                         {rankChildren}
@@ -322,21 +399,19 @@ class App extends Component {
                         {msgChildren}
                     </div>
                 </div>
-                <div className='footer'>
-                    <TextField
-                      id="stock-article"
-                      className="stock-input"
-                      value={this.state.article}
-                      onChange={this.articleChange}
-                      hintText="文章ID"
-                    />
-                    <div id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>
-                </div>
+                <Dialog
+                    title={"搜尋文章"}
+                    actions={dialogSearchActions}
+                    modal={true}
+                    open={this.state.openSearchDialog}
+                >
+                    {dialogSearchChildren}
+                </Dialog>
             </div>
         }else if (infoStatus === 'loading') {
             return <div>Loading...</div>;
         }else if (infoStatus === 'error') {
-            return <div>Loading...</div>;
+            return <div>Error!!!</div>;
         }
 
     }
