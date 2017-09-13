@@ -24,7 +24,7 @@ class App extends Component {
         console.log(props);
         super(props);
 
-        let article = "M.1504830606.A.0D9";
+        let article = "M.1505262703.A.B96";
         if(props.match && props.match.params && props.match.params.id){
             article = props.match.params.id;   
         }
@@ -113,9 +113,12 @@ class App extends Component {
                         }
                     })
                     .then(function(data){
-                        // console.log(main.state.messages.concat(data));
                         main.setState({
-                            messages: main.state.messages.concat(data)
+                            messages: main.state.messages.concat(data.messages)
+                        }, () => {
+                            setTimeout( () => {
+                                $('#allContainer').scrollTop($('#allContainer')[0].scrollHeight);    
+                            }, 1500);
                         });
                     });
                 });
@@ -147,7 +150,7 @@ class App extends Component {
 
     parseMessages = messages => {
         // set tags
-        messages = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime));
+        // messages = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime));
         messages.forEach(msg => {
             msg.idTags = [];
             msg.keyTags = [];
@@ -310,7 +313,7 @@ class App extends Component {
                     <div id='stockContainer' className='stock-list'>
                         {stockChildren}
                     </div>
-                    <div className='all-msg-list'>
+                    <div id='allContainer' className='all-msg-list'>
                         {msgChildren}
                     </div>
                 </div>
