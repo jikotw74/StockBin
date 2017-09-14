@@ -1,0 +1,6 @@
+.TopBar > div {
+  color: white;
+  display: flex;
+  align-items: center; }
+  .TopBar > div h1 {
+    font-family: 'MSJH', sans-serif; }

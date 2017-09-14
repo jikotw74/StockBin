@@ -10,16 +10,12 @@ import { connect } from 'react-redux'
 import htmlToJson from 'html-to-json';
 import attachPoller from './utils/bbs.js'
 import $ from 'jquery'
-import TextField from 'material-ui/TextField';
+// import TextField from 'material-ui/TextField';
 import StockMessage from './components/StockMessage';
 import StockHeader from './components/StockHeader';
+import TopBar from './container/TopBar';
 import keywords from './config/keywords';
 import Scroll from 'react-scroll';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import IconSearch from 'material-ui/svg-icons/action/search';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
 // import LinearProgress from 'material-ui/LinearProgress';
 
 
@@ -28,7 +24,6 @@ var ScrollElement    = Scroll.Element;
 
 class App extends Component {
     constructor(props) {
-        console.log(props);
         super(props);
 
         let article = "M.1505262703.A.B96";
@@ -151,11 +146,6 @@ class App extends Component {
         setTimeout(() => this._attachPoller(), 3000);
     }
 
-    articleChange = event => {
-        this.props.history.push("/" + event.target.value);
-        // this._fetchData(event.target.value);
-    }
-
     benchTime = time => {
         if(time.length === 0){
             console.warn('benchTime is empty', time);
@@ -253,33 +243,10 @@ class App extends Component {
         </ScrollElement>
     }
 
-    openSearchDialog = () => {
-        this.setState({
-            openSearchDialog: true
-        });
-    }
-
-    closeSearchDialog = () => {
-        this.setState({
-            openSearchDialog: false
-        });
-    }
-
-    searchArticleValueChange = event => {
-        this.setState({
-            searchArticleValue: event.target.value
-        });
-    }
-
-    searchArticle = event => {
-        this.props.history.push("/" + this.state.searchArticleValue);
-    }
-
     render() {
         const { 
           infoStatus 
         } = this.state;
-
 
         if (infoStatus === 'loaded') {
             const messages = this.state.messages.filter(msg => msg.userid !== "");
@@ -345,49 +312,10 @@ class App extends Component {
                 )
             });
 
-            const topChildren = [];
-            // topChildren.push(<TextField
-            //                     key={1}
-            //                     id="stock-article"
-            //                     className="stock-input"
-            //                     value={this.state.article}
-            //                     onChange={this.articleChange}
-            //                     hintText="文章ID"
-            //                 />);
-            topChildren.push(<div key={2} id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>);
-
-            const dialogSearchActions = [
-                <FlatButton
-                    label="取消"
-                    onTouchTap={this.closeSearchDialog}
-                />,
-                <FlatButton
-                    label="完成"
-                    primary={true}
-                    onTouchTap={this.searchArticle}
-                />,
-            ];
-
-            const dialogSearchChildren = (
-                <TextField
-                    id="stock-article"
-                    className="stock-input"
-                    value={this.state.searchArticleValue}
-                    onChange={this.searchArticleValueChange}
-                    hintText="文章ID"
-                />
-            );
-
             return <div className='App'>
-                <div className="TopBar">
-                    <AppBar
-                        title={this.state.article_title}
-                        // iconClassNameRight="material-icons muidocs-icon-navigation-expand-more"
-                        onLeftIconButtonTouchTap={this.openSearchDialog}
-                        iconElementLeft={<IconButton><IconSearch /></IconButton>}
-                        children={topChildren}
-                    />
-                </div>
+                <TopBar {...this.props} className="TopBar" title={this.state.article_title}>
+                    <div id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>
+                </TopBar>
                 <div className='main'>
                     <div className='rank-list'>
                         {rankChildren}
@@ -399,14 +327,6 @@ class App extends Component {
                         {msgChildren}
                     </div>
                 </div>
-                <Dialog
-                    title={"搜尋文章"}
-                    actions={dialogSearchActions}
-                    modal={true}
-                    open={this.state.openSearchDialog}
-                >
-                    {dialogSearchChildren}
-                </Dialog>
             </div>
         }else if (infoStatus === 'loading') {
             return <div>Loading...</div>;
