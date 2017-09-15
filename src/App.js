@@ -149,7 +149,7 @@ class App extends Component {
     benchTime = time => {
         if(time.length === 0){
             console.warn('benchTime is empty', time);
-            time = "0000 00:00";
+            time = "00/00 00:00";
         }
         const arr = time.split(' ')[1].split(":");
         return (arr[0]*60) + (arr[1]*1);
@@ -193,7 +193,7 @@ class App extends Component {
 
         let allStock = allStockIds.map(stock_id => {
             let stockMessages = messages.filter(msg => msg.idTags.indexOf(stock_id) !== -1);
-            stockMessages.map(msg => {
+            stockMessages = stockMessages.map(msg => {
                 let relatedMessages = messages.filter(message => {
                     if(message.userid === msg.userid){
                         if(Math.abs(this.benchTime(message.ipdatetime) - this.benchTime(msg.ipdatetime)) <= 1){
@@ -252,6 +252,7 @@ class App extends Component {
             const messages = this.state.messages.filter(msg => msg.userid !== "");
             const stocks = this.parseMessages(messages);
             const polling = this.state.polling;
+            console.log('stocks', stocks);
             const stockChildren = stocks.map( (stock, index) => {
                 return this.createStockElement(stock, index);
             });
