@@ -9,16 +9,11 @@
     overflow: hidden;
     flex: 1;
 }
-.footer{
-    display: flex;
-    background-color: white;
-    padding: 0em 0.5em;
-    align-items: center;
-    border-top: 1px solid #CCC;
-}
 #article-polling{
+    font-family: 'MSJH', sans-serif;
     flex: 1;
-    color: #333;
+    color: white;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -94,11 +89,8 @@
 #stockContainer{
     position: relative;
     overflow: auto;
-    padding-bottom: 100vh;
-    &:after{
-        content: "";
-        height: 80vh;
-        width: 1px;
+    >div:last-child{
+        padding-bottom: 80vh;
     }
 }
 
@@ -107,7 +99,5 @@
     flex-direction: column;
     overflow-y: auto;
     flex: 1;
-    .StockMessage{
-        padding: 0 0.5em;
-    }
+    padding: 0 1em;
 }

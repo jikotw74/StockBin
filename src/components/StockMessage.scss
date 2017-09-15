@@ -3,6 +3,7 @@
 	flex-shrink: 0;
 	line-height: 1.5em;
 	border-top: 1px solid #CCC;
+	align-items: flex-start;
 
 	&.has-tags{
 		cursor: pointer;
@@ -23,6 +24,10 @@
     padding-right: 0.3em;
     width: 250px;
     word-break: break-all;
+}
+.StockMessage-tags{
+	display: flex;
+    align-items: center;
 }
 .StockMessage-idTags{
 	display: flex;
@@ -50,4 +55,12 @@
     padding: 0.2em 0.5em;
     margin: 0.3em;
     font-size: 0.8em;
+}
+.StockMessage-index{
+	color:#4CAF50;
+	font-size: 0.8em;
+	width:35px;
+	display: flex;
+	justify-content: center;
+	margin-right: 0.4em;
 }

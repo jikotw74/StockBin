@@ -10,21 +10,23 @@ import { connect } from 'react-redux'
 import htmlToJson from 'html-to-json';
 import attachPoller from './utils/bbs.js'
 import $ from 'jquery'
-import TextField from 'material-ui/TextField';
+// import TextField from 'material-ui/TextField';
 import StockMessage from './components/StockMessage';
 import StockHeader from './components/StockHeader';
+import TopBar from './container/TopBar';
 import keywords from './config/keywords';
 import Scroll from 'react-scroll';
+// import LinearProgress from 'material-ui/LinearProgress';
+
 
 var ScrollLink   = Scroll.Link;
 var ScrollElement    = Scroll.Element;
 
 class App extends Component {
     constructor(props) {
-        console.log(props);
         super(props);
 
-        let article = "M.1504830606.A.0D9";
+        let article = "M.1505262703.A.B96";
         if(props.match && props.match.params && props.match.params.id){
             article = props.match.params.id;   
         }
@@ -33,7 +35,9 @@ class App extends Component {
             article: article,
             messages: undefined,
             polling: undefined,
-            $polling: false
+            $polling: false,
+            openSearchDialog: false,
+            searchArticleValue: "",
         };
     };
 
@@ -70,7 +74,10 @@ class App extends Component {
                 },
                 'polling': function ($doc) {
                     return $doc.find('#article-polling');
-                }
+                },
+                'meta': function ($doc) {
+                    return $doc.find('.article-metaline');
+                }                
             });
         })
         .then( function(data) {
@@ -80,7 +87,8 @@ class App extends Component {
                     article: query,
                     infoStatus: 'loaded',
                     messages: data.messages,
-                    polling: data.polling[0].attribs
+                    polling: data.polling[0].attribs,
+                    article_title: data.meta[1].children[1].children[0].data
                 });
             }, 300);
         })
@@ -113,9 +121,12 @@ class App extends Component {
                         }
                     })
                     .then(function(data){
-                        // console.log(main.state.messages.concat(data));
                         main.setState({
-                            messages: main.state.messages.concat(data)
+                            messages: main.state.messages.concat(data.messages)
+                        }, () => {
+                            setTimeout( () => {
+                                $('#allContainer').scrollTop($('#allContainer')[0].scrollHeight);    
+                            }, 1500);
                         });
                     });
                 });
@@ -135,21 +146,19 @@ class App extends Component {
         setTimeout(() => this._attachPoller(), 3000);
     }
 
-    articleChange = event => {
-        this.props.history.push("/" + event.target.value);
-        // this._fetchData(event.target.value);
+    benchTime = time => {
+        if(time.length === 0){
+            console.warn('benchTime is empty', time);
+            time = "00/00 00:00";
+        }
+        const arr = time.split(' ')[1].split(":");
+        return (arr[0]*60) + (arr[1]*1);
     }
 
     parseMessages = messages => {
-        const benchTime = time => {
-            const arr = time.split(' ')[1].split(":");
-            return (arr[0]*60) + (arr[1]*1);
-        }
-
         // set tags
-        // messages = messages.sort((a, b) => benchTime(b.ipdatetime) - benchTime(a.ipdatetime));
+        // messages = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime));
         messages.forEach(msg => {
-            let matched = false;
             msg.idTags = [];
             msg.keyTags = [];
 
@@ -184,10 +193,10 @@ class App extends Component {
 
         let allStock = allStockIds.map(stock_id => {
             let stockMessages = messages.filter(msg => msg.idTags.indexOf(stock_id) !== -1);
-            stockMessages.map(msg => {
+            stockMessages = stockMessages.map(msg => {
                 let relatedMessages = messages.filter(message => {
                     if(message.userid === msg.userid){
-                        if(Math.abs(benchTime(message.ipdatetime) - benchTime(msg.ipdatetime)) <= 1){
+                        if(Math.abs(this.benchTime(message.ipdatetime) - this.benchTime(msg.ipdatetime)) <= 1){
                             return true;
                         }
                     }
@@ -198,14 +207,14 @@ class App extends Component {
                 return {
                     userid: msg.userid,
                     ipdatetime: msg.ipdatetime,
-                    content: relatedMessages.sort((a, b) => benchTime(a.ipdatetime) - benchTime(b.ipdatetime)).map(item => item.content)
+                    content: relatedMessages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime)).map(item => item.content)
                 }
             });
 
             // stock data obj
             return {
                 stock_id: stock_id,
-                messages: stockMessages.sort((a, b) => benchTime(b.ipdatetime) - benchTime(a.ipdatetime))
+                messages: stockMessages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime))
             }
         });
 
@@ -239,9 +248,9 @@ class App extends Component {
           infoStatus 
         } = this.state;
 
-
         if (infoStatus === 'loaded') {
-            const stocks = this.parseMessages(this.state.messages);
+            const messages = this.state.messages.filter(msg => msg.userid !== "");
+            const stocks = this.parseMessages(messages);
             const polling = this.state.polling;
             const stockChildren = stocks.map( (stock, index) => {
                 return this.createStockElement(stock, index);
@@ -258,7 +267,7 @@ class App extends Component {
                 const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
                 return (
                     <ScrollLink 
-                        key={index} 
+                        key={'rank-'+index} 
                         activeClass="active" 
                         className='rank-scroll-link'
                         to={`stock-${stock.stock_id}`} 
@@ -276,20 +285,22 @@ class App extends Component {
                 )
             });
 
-            const msgChildren = this.state.messages.sort()
+            // const allMessages = this.state.messages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime))
+            const msgChildren = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime))
                 .map( (msg, index) => {
                 return (
                     <ScrollLink 
-                        key={index} 
-                        activeClass="active" 
-                        className='rank-scroll-link'
+                        key={'msg-'+index} 
+                        // activeClass="active" 
+                        // className='rank-scroll-link'
                         to={`stock-${msg.idTags[0]}`} 
-                        spy={true} 
+                        // spy={true} 
                         smooth={true} 
                         offset={0}
                         duration={500} 
                         containerId='stockContainer'>
                             <StockMessage
+                                index={index+1}
                                 userid={msg.userid}
                                 content={msg.content}
                                 ipdatetime={msg.ipdatetime.split(' ')[1]}
@@ -302,6 +313,9 @@ class App extends Component {
             });
 
             return <div className='App'>
+                <TopBar {...this.props} className="TopBar" title={this.state.article_title}>
+                    <div id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>
+                </TopBar>
                 <div className='main'>
                     <div className='rank-list'>
                         {rankChildren}
@@ -309,25 +323,15 @@ class App extends Component {
                     <div id='stockContainer' className='stock-list'>
                         {stockChildren}
                     </div>
-                    <div className='all-msg-list'>
+                    <div id='allContainer' className='all-msg-list'>
                         {msgChildren}
                     </div>
-                </div>
-                <div className='footer'>
-                    <TextField
-                      id="stock-article"
-                      className="stock-input"
-                      value={this.state.article}
-                      onChange={this.articleChange}
-                      hintText="文章ID"
-                    />
-                    <div id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>
                 </div>
             </div>
         }else if (infoStatus === 'loading') {
             return <div>Loading...</div>;
         }else if (infoStatus === 'error') {
-            return <div>Loading...</div>;
+            return <div>Error!!!</div>;
         }
 
     }
