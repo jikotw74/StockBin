@@ -252,7 +252,6 @@ class App extends Component {
             const messages = this.state.messages.filter(msg => msg.userid !== "");
             const stocks = this.parseMessages(messages);
             const polling = this.state.polling;
-            console.log('stocks', stocks);
             const stockChildren = stocks.map( (stock, index) => {
                 return this.createStockElement(stock, index);
             });
