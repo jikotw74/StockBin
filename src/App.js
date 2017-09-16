@@ -26,7 +26,7 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        let article = "M.1505262703.A.B96";
+        let article = "M.1505435457.A.858";
         if(props.match && props.match.params && props.match.params.id){
             article = props.match.params.id;   
         }

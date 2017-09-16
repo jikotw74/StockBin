@@ -16,16 +16,15 @@ class TopBar extends Component {
         this.state = {
             openSearchDialog: false,
             searchArticleValue: "",
-            last_article_title: false,
-            last_article_id: false
+            optionArticles: []
         };
     }
 
-    _fetchLastArticle = () => {
-        const main = this;
+    _findArticlePromise = (regexp, page) => {
+        page = page || "";
+        regexp = regexp || new RegExp();
 
-        // fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=50a34e070dd5c09a99554b57ab7ea7e2`)
-        fetch(`https://www.ptt.cc/bbs/Stock/index.html`)
+        let promise = fetch(`https://www.ptt.cc/bbs/Stock/index${page}.html`)
         .then( function(response) {
             return response.text();
         })
@@ -40,26 +39,92 @@ class TopBar extends Component {
                             id: $item.attr('href').split('/')[3].replace('.html', ''),
                         };
                     })
-                },             
+                }     
             });
         })
         .then( function(data) {
             // console.log(data);
-            const last = data.articles[data.articles.length-1];
-            if(last)setTimeout( function() {
-                main.setState({
-                    last_article_title: last.title,
-                    last_article_id: last.id
+            return data.articles.filter(article => {
+                return article.title.match(regexp);
+            });
+        })
+        .then(results => (results.length > 0 || page === 0) ? results : this._findArticlePromise(regexp, page-1))
+        .catch( function(error) {
+            console.log(error);
+        });
+
+        return promise;
+    };
+
+    _fetchLastArticle = () => {
+        const main = this;
+
+        // fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=50a34e070dd5c09a99554b57ab7ea7e2`)
+        fetch(`https://www.ptt.cc/bbs/Stock/index.html`)
+        .then( function(response) {
+            return response.text();
+        })
+        .then( function(html) {
+            // console.log(html)
+            return htmlToJson.parse(html, {
+                // 'articles': function ($doc) {
+                //     // ex. link would be <a href="/bbs/PublicServan/M.1127742013.A.240.html">Re: [問題] 職等</a>
+                //     return this.map('.r-ent .title a', function($item, index){
+                //         return {
+                //             title: $item.text(),
+                //             id: $item.attr('href').split('/')[3].replace('.html', ''),
+                //         };
+                //     })
+                // },
+                'buttons': function ($doc) {
+                    return this.map('.btn-group-paging .btn', function($item, index){
+                        return {
+                            text: $item.text(),
+                            href: $item.attr('href')
+                        };
+                    })
+                }          
+            });
+        })
+        .then( function(data) {
+            // console.log(data);
+
+            let nowPage = false;
+            data.buttons.forEach(btn => {
+                if(nowPage){
+                    return;
+                }
+                if(btn.text.indexOf("上頁") !== -1){
+                    const match = btn.href.match(/\/bbs\/Stock\/index(\d*)\.html/);
+                    if(match){
+                        nowPage = match[1]*1 + 1;
+                    }
+                }
+            });    
+
+            if(nowPage){
+                
+                main._findArticlePromise(/盤中閒聊/, nowPage)
+                .then(results => {
+                    main.setState({
+                        optionArticles: main.state.optionArticles.concat(results)
+                    });
+                    return main._findArticlePromise(/盤後閒聊/, nowPage)
+                    .then(results => {
+                        main.setState({
+                            optionArticles: main.state.optionArticles.concat(results)
+                        });
+                    })
                 });
-            }, 300);
+            }
         })
         .catch( function(error) {
             console.log(error);
         });
     };
 
-    componentDidMount(){
-        setTimeout(() => this._fetchLastArticle(), 1000);
+    componentWillMount(){
+        this._fetchLastArticle();
     }
 
     articleChange = event => {
@@ -96,8 +161,11 @@ class TopBar extends Component {
     render() {
         let className = "TopBar";
 
-        const ActionsMenu = (props) => (
-            <IconMenu
+        const ActionsMenu = (props) => {
+            const menuItems = this.state.optionArticles.map((item, index) => {
+                return <MenuItem key={index} primaryText={item.title} onClick={this.searchArticleById(item.id)}/>
+            });
+            return <IconMenu
                 {...props}
                 iconButtonElement={
                     <IconButton><SearchIcon color='white'/></IconButton>
@@ -105,10 +173,10 @@ class TopBar extends Component {
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
             >
-                {this.state.last_article_title && <MenuItem primaryText={this.state.last_article_title} onClick={this.searchArticleById(this.state.last_article_id)}/>} 
+                {menuItems} 
                 <MenuItem primaryText="搜尋文章ID" onClick={this.openSearchDialog}/>
             </IconMenu>
-        );
+        }
         ActionsMenu.muiName = 'IconMenu';
 
         const dialogSearchActions = [
