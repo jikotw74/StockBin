@@ -4,20 +4,19 @@ import { connect } from 'react-redux'
 // import connect from 'react-redux-fetch';
 // import { Route } from 'react-router'
 // import { Link, Switch, Redirect } from 'react-router-dom'
-// import { updateAppSelected, openAppStartEnd, openAppDate, updateAppPickerStartEndValue, updateAppPickerDateValue, updateAppIntro, updateAppOrderTrain, updateBusiTicket } from './actions'
 
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import htmlToJson from 'html-to-json';
 import attachPoller from './utils/bbs.js'
 import $ from 'jquery'
-// import TextField from 'material-ui/TextField';
 import StockMessage from './components/StockMessage';
 import StockHeader from './components/StockHeader';
 import TopBar from './container/TopBar';
+import StockCard from './container/StockCard';
 import keywords from './config/keywords';
 import Scroll from 'react-scroll';
+import { updateAppLastPage } from './actions';
 // import LinearProgress from 'material-ui/LinearProgress';
-
 
 var ScrollLink   = Scroll.Link;
 var ScrollElement    = Scroll.Element;
@@ -136,6 +135,11 @@ class App extends Component {
 
     componentWillMount() {
         this._fetchData();
+        this.props.app._findLastPagePromise()
+        .then(page => {
+            console.log('last page', page);
+            this.props.dispatch(updateAppLastPage(page));
+        })
     }
 
     componentDidUpdate(){
@@ -221,40 +225,16 @@ class App extends Component {
         return allStock.sort((a, b) => b.messages.length - a.messages.length);
     }
 
-    createStockElement = (stock, index) => {
-        const messages = stock.messages;
-        const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
-
-        return <ScrollElement key={index} name={`stock-${stock.stock_id}`}>
-            <div className='stock-element'>
-                <StockHeader stock_id={stock.stock_id} keys={keys} />
-                <div className='stock-element-msg-list'>
-                    {messages.map((item, index) => (
-                        <StockMessage
-                            key={index}
-                            userid={item.userid}
-                            content={item.content}
-                            ipdatetime={item.ipdatetime.split(' ')[1]}
-                        >
-                        </StockMessage>
-                    ))}
-                </div>
-            </div>
-        </ScrollElement>
-    }
-
     render() {
         const { 
           infoStatus 
         } = this.state;
 
-        if (infoStatus === 'loaded') {
+        if (infoStatus === 'loaded' && this.props.app.lastPage) {
             const messages = this.state.messages.filter(msg => msg.userid !== "");
             const stocks = this.parseMessages(messages);
             const polling = this.state.polling;
-            const stockChildren = stocks.map( (stock, index) => {
-                return this.createStockElement(stock, index);
-            });
+            const stockChildren = stocks.map( (stock, index) => <StockCard key={index} stock={stock}/>);
 
             let totalMessages = 0;
             stocks.forEach(stock => {
@@ -280,7 +260,8 @@ class App extends Component {
                                 stock_id={stock.stock_id} 
                                 comments={stock.messages.length}
                                 percentage={Math.floor(stock.messages.length/totalMessages*70)}
-                                keys={keys}/>
+                                keys={keys}
+                            />
                     </ScrollLink>
                 )
             });
@@ -337,6 +318,8 @@ class App extends Component {
     }
 }
 
-// App = connect(mapStateToProps)(App);
-App = connect()(App);
+const mapStateToProps = state => {
+  return { app: state.app }
+}
+App = connect(mapStateToProps)(App);
 export default App;

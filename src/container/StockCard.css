@@ -1,0 +1,17 @@
+.StockCard {
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  margin: 20px 20px 10px 20px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; }
+
+.StockCard-msg-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-shrink: 0;
+  overflow: auto;
+  max-height: 50vh; }
+  .StockCard-msg-list .StockMessage {
+    width: 100%; }

@@ -1,6 +1,7 @@
 .StockHeader{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .StockHeader-header{
     display: flex;
@@ -21,6 +22,7 @@
     padding: 0.2em 0.3em;
     margin: 0.2em;
     font-size: 0.9em;
+    white-space: nowrap;
 }
 .StockHeader-rank{
     display: flex;

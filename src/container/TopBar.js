@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './TopBar.css';
+import { connect } from 'react-redux'
 import AppBar from 'material-ui/AppBar';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -20,44 +21,9 @@ class TopBar extends Component {
         };
     }
 
-    _findArticlePromise = (regexp, page) => {
-        page = page || "";
-        regexp = regexp || new RegExp();
-
-        let promise = fetch(`https://www.ptt.cc/bbs/Stock/index${page}.html`)
-        .then( function(response) {
-            return response.text();
-        })
-        .then( function(html) {
-            // console.log(html)
-            return htmlToJson.parse(html, {
-                'articles': function ($doc) {
-                    // ex. link would be <a href="/bbs/PublicServan/M.1127742013.A.240.html">Re: [問題] 職等</a>
-                    return this.map('.r-ent .title a', function($item, index){
-                        return {
-                            title: $item.text(),
-                            id: $item.attr('href').split('/')[3].replace('.html', ''),
-                        };
-                    })
-                }     
-            });
-        })
-        .then( function(data) {
-            // console.log(data);
-            return data.articles.filter(article => {
-                return article.title.match(regexp);
-            });
-        })
-        .then(results => (results.length > 0 || page === 0) ? results : this._findArticlePromise(regexp, page-1))
-        .catch( function(error) {
-            console.log(error);
-        });
-
-        return promise;
-    };
-
     _fetchLastArticle = () => {
         const main = this;
+        const _findArticlePromise = this.props.app._findArticlePromise;
 
         // fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=50a34e070dd5c09a99554b57ab7ea7e2`)
         fetch(`https://www.ptt.cc/bbs/Stock/index.html`)
@@ -104,12 +70,17 @@ class TopBar extends Component {
 
             if(nowPage){
                 
-                main._findArticlePromise(/盤中閒聊/, nowPage)
+                _findArticlePromise(/盤中閒聊/, {
+                    pageFrom: nowPage,
+                    inDays: 2,
+                })
                 .then(results => {
                     main.setState({
                         optionArticles: main.state.optionArticles.concat(results)
                     });
-                    return main._findArticlePromise(/盤後閒聊/, nowPage)
+                    return _findArticlePromise(/盤後閒聊/, {
+                        pageFrom: nowPage
+                    })
                     .then(results => {
                         main.setState({
                             optionArticles: main.state.optionArticles.concat(results)
@@ -125,11 +96,16 @@ class TopBar extends Component {
 
     componentWillMount(){
         this._fetchLastArticle();
+
+        // const reg = new RegExp('\[標的\].*6188.*');
+        // this.props.app._findArticlePromise(reg, {
+        //     pageFrom: 3675
+        // })
+        // .then(response => console.log(response));
     }
 
     articleChange = event => {
         this.props.history.push("/" + event.target.value);
-        // this._fetchData(event.target.value);
     }
 
     openSearchDialog = () => {
@@ -163,6 +139,7 @@ class TopBar extends Component {
 
         const ActionsMenu = (props) => {
             const menuItems = this.state.optionArticles.map((item, index) => {
+                console.log(item);
                 return <MenuItem key={index} primaryText={item.title} onClick={this.searchArticleById(item.id)}/>
             });
             return <IconMenu
@@ -223,4 +200,8 @@ class TopBar extends Component {
     }
 }
 
+const mapStateToProps = state => {
+  return { app: state.app }
+}
+TopBar = connect(mapStateToProps)(TopBar);
 export default TopBar;
