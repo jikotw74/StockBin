@@ -19,7 +19,7 @@ import { updateAppLastPage } from './actions';
 // import LinearProgress from 'material-ui/LinearProgress';
 
 var ScrollLink   = Scroll.Link;
-var ScrollElement    = Scroll.Element;
+// var ScrollElement    = Scroll.Element;
 
 class App extends Component {
     constructor(props) {
@@ -251,7 +251,7 @@ class App extends Component {
                         activeClass="active" 
                         className='rank-scroll-link'
                         to={`stock-${stock.stock_id}`} 
-                        spy={true} 
+                        // spy={true} 
                         smooth={true} 
                         offset={0}
                         duration={500} 

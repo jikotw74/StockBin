@@ -59,7 +59,7 @@ const _findArticlePromise = (regexp, options) => {
     .then(results => {
         // console.log('results', results);
         if(results.length > 0 || pageFrom === 3665 || pageFrom === ""){
-            return results;
+            return results.length > 0 ? [results[0]] : [];
         }else{
             return _findArticlePromise(regexp, {
                 pageFrom: pageFrom-1,

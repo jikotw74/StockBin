@@ -9,7 +9,7 @@ import SearchIcon from 'material-ui/svg-icons/action/search';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import htmlToJson from 'html-to-json';
+// import htmlToJson from 'html-to-json';
 
 class TopBar extends Component {
     constructor(props) {
@@ -22,86 +22,40 @@ class TopBar extends Component {
     }
 
     _fetchLastArticle = () => {
-        const main = this;
         const _findArticlePromise = this.props.app._findArticlePromise;
 
-        // fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=50a34e070dd5c09a99554b57ab7ea7e2`)
-        fetch(`https://www.ptt.cc/bbs/Stock/index.html`)
-        .then( function(response) {
-            return response.text();
-        })
-        .then( function(html) {
-            // console.log(html)
-            return htmlToJson.parse(html, {
-                // 'articles': function ($doc) {
-                //     // ex. link would be <a href="/bbs/PublicServan/M.1127742013.A.240.html">Re: [問題] 職等</a>
-                //     return this.map('.r-ent .title a', function($item, index){
-                //         return {
-                //             title: $item.text(),
-                //             id: $item.attr('href').split('/')[3].replace('.html', ''),
-                //         };
-                //     })
-                // },
-                'buttons': function ($doc) {
-                    return this.map('.btn-group-paging .btn', function($item, index){
-                        return {
-                            text: $item.text(),
-                            href: $item.attr('href')
-                        };
-                    })
-                }          
-            });
-        })
-        .then( function(data) {
-            // console.log(data);
-
-            let nowPage = false;
-            data.buttons.forEach(btn => {
-                if(nowPage){
-                    return;
-                }
-                if(btn.text.indexOf("上頁") !== -1){
-                    const match = btn.href.match(/\/bbs\/Stock\/index(\d*)\.html/);
-                    if(match){
-                        nowPage = match[1]*1 + 1;
-                    }
-                }
-            });    
-
-            if(nowPage){
-                
+        if(this.props.app.lastPage){
+            this.setState({
+                optionArticles: []
+            }, () => {
                 _findArticlePromise(/盤中閒聊/, {
-                    pageFrom: nowPage,
+                    pageFrom: this.props.app.lastPage,
                     inDays: 2,
                 })
                 .then(results => {
-                    main.setState({
-                        optionArticles: main.state.optionArticles.concat(results)
+                    this.setState({
+                        optionArticles: this.state.optionArticles.concat(results)
                     });
-                    return _findArticlePromise(/盤後閒聊/, {
-                        pageFrom: nowPage
-                    })
-                    .then(results => {
-                        main.setState({
-                            optionArticles: main.state.optionArticles.concat(results)
-                        });
-                    })
+                    // return _findArticlePromise(/盤後閒聊/, {
+                    //     pageFrom: this.props.app.lastPage,
+                    //     inDays: 2,
+                    // })
+                    // .then(results => {
+                    //     this.setState({
+                    //         optionArticles: this.state.optionArticles.concat(results)
+                    //     });
+                    // })
+                })
+                .catch( function(error) {
+                    console.log(error);
                 });
-            }
-        })
-        .catch( function(error) {
-            console.log(error);
-        });
+            });
+            
+        }
     };
 
     componentWillMount(){
         this._fetchLastArticle();
-
-        // const reg = new RegExp('\[標的\].*6188.*');
-        // this.props.app._findArticlePromise(reg, {
-        //     pageFrom: 3675
-        // })
-        // .then(response => console.log(response));
     }
 
     articleChange = event => {
@@ -139,7 +93,6 @@ class TopBar extends Component {
 
         const ActionsMenu = (props) => {
             const menuItems = this.state.optionArticles.map((item, index) => {
-                console.log(item);
                 return <MenuItem key={index} primaryText={item.title} onClick={this.searchArticleById(item.id)}/>
             });
             return <IconMenu

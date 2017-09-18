@@ -1,19 +1,24 @@
 .StockHeader {
   display: flex;
   align-items: center;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  position: relative;
+}
 
 .StockHeader-header {
   display: flex;
-  align-items: center; }
+  align-items: center;
+}
 
 .StockHeader-name {
   font-size: 1.3em;
   font-weight: bold;
-  margin-right: 0.5em; }
+  margin-right: 0.5em;
+}
 
 .StockHeader-keys {
-  display: flex; }
+  display: flex;
+}
 
 .StockHeader-key {
   background-color: #2196F3;
@@ -22,17 +27,27 @@
   padding: 0.2em 0.3em;
   margin: 0.2em;
   font-size: 0.9em;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 .StockHeader-rank {
   display: flex;
-  flex: 1; }
+  flex: 1;
+}
 
 .StockHeader-rank-comments {
   color: #333;
   margin-left: 10px;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 .StockHeader-rank-percentage {
   background-color: #F44336;
-  min-width: 5%; }
+  min-width: 5%;
+}
+
+.TargetArticles {
+  position: absolute;
+  top: -38px;
+  right: -38px;
+}

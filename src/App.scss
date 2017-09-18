@@ -40,10 +40,10 @@
     height: 100%;
 
     .rank-scroll-link{
-        opacity: 0.5;
-        &.active{
+        // opacity: 0.5;
+        &:hover{
             background-color: #E3F2FD;
-            opacity: 1;
+            // opacity: 1;
         }
         &:last-child .StockHeader{
             border-bottom: 0px;

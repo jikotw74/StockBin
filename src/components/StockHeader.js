@@ -7,9 +7,12 @@ import IconButton from 'material-ui/IconButton';
 import AnnouncementIcon from 'material-ui/svg-icons/action/announcement';
 
 const TargetArticles = (props) => {
+    const openArticle = href => event => {
+        window.open("http://www.ptt.cc" + href, "_blank");
+    }
 
     const menuItems = props.articles.map((item, index) => {
-        return <MenuItem key={index} primaryText={item.title} onClick={e => console.log(item.id)}/>
+        return <MenuItem key={index} primaryText={item.date + " " + item.title} onClick={openArticle(item.href)}/>
     });
 
     return ( 
@@ -23,8 +26,8 @@ const TargetArticles = (props) => {
                 iconButtonElement={
                     <IconButton tooltip="標的文"><AnnouncementIcon/></IconButton>
                 }
-                targetOrigin={{horizontal: 'left', vertical: 'top'}}
-                anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
             >
                 {menuItems} 
             </IconMenu>
