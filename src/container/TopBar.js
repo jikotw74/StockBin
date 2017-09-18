@@ -36,15 +36,15 @@ class TopBar extends Component {
                     this.setState({
                         optionArticles: this.state.optionArticles.concat(results)
                     });
-                    // return _findArticlePromise(/盤後閒聊/, {
-                    //     pageFrom: this.props.app.lastPage,
-                    //     inDays: 2,
-                    // })
-                    // .then(results => {
-                    //     this.setState({
-                    //         optionArticles: this.state.optionArticles.concat(results)
-                    //     });
-                    // })
+                    return _findArticlePromise(/盤後閒聊/, {
+                        pageFrom: this.props.app.lastPage,
+                        inDays: 2,
+                    })
+                    .then(results => {
+                        this.setState({
+                            optionArticles: this.state.optionArticles.concat(results)
+                        });
+                    })
                 })
                 .catch( function(error) {
                     console.log(error);
