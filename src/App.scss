@@ -69,7 +69,8 @@
 
 #stockContainer{
     position: relative;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     >div:last-child{
         padding-bottom: 80vh;
     }
