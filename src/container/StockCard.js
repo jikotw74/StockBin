@@ -33,15 +33,15 @@ class StockCard extends Component {
 
     render() {
         let className = "StockCard";
-        const stock = this.props.stock
-        const messages = stock.messages;
-        const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
+        const stock_id = this.props.stock_id
+        const messages = this.props.messages || [];
+        const keys = keywords[stock_id] ? keywords[stock_id].keys : [];
 
         // console.log(this.props.app._findArticlePromise);
 
-        return <ScrollElement name={`stock-${stock.stock_id}`}>
+        return <ScrollElement name={`stock-${stock_id}`}>
             <div className={className}>
-                <StockHeader stock_id={stock.stock_id} keys={keys} targetArticles={this.state.targetArticles}/>
+                <StockHeader stock_id={stock_id} keys={keys} targetArticles={this.state.targetArticles}/>
                 <div className='StockCard-msg-list'>
                     {messages.map((item, index) => (
                         <StockMessage

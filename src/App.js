@@ -234,7 +234,7 @@ class App extends Component {
             const messages = this.state.messages.filter(msg => msg.userid !== "");
             const stocks = this.parseMessages(messages);
             const polling = this.state.polling;
-            const stockChildren = stocks.map( (stock, index) => <StockCard key={index} stock={stock}/>);
+            const stockChildren = stocks.map( (stock, index) => <StockCard key={index} stock_id={stock.stock_id} stock={stock.messages}/>);
 
             let totalMessages = 0;
             stocks.forEach(stock => {
