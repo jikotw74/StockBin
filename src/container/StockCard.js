@@ -18,8 +18,8 @@ class StockCard extends Component {
     }
 
     componentWillMount(){
-        if(keywords[this.props.stock.stock_id]){
-            const reg = new RegExp("^\\[標的\\].*" + this.props.stock.stock_id + '.*');
+        if(keywords[this.props.stock_id]){
+            const reg = new RegExp("^\\[標的\\].*" + this.props.stock_id + '.*');
             
             this.props.app._findArticlePromise(reg, {
                 pageFrom: this.props.app.lastPage,
