@@ -18,17 +18,17 @@ class StockCard extends Component {
     }
 
     componentWillMount(){
-        if(keywords[this.props.stock_id]){
-            const reg = new RegExp("^\\[標的\\].*" + this.props.stock_id + '.*');
+        // if(keywords[this.props.stock_id]){
+        //     const reg = new RegExp("^\\[標的\\].*" + this.props.stock_id + '.*');
             
-            this.props.app._findArticlePromise(reg, {
-                pageFrom: this.props.app.lastPage,
-                inDays: 5
-            })
-            .then(response => this.setState({
-                targetArticles: this.state.targetArticles.concat(response)
-            }));    
-        }
+        //     this.props.app._findArticlePromise(reg, {
+        //         pageFrom: this.props.app.lastPage,
+        //         inDays: 5
+        //     })
+        //     .then(response => this.setState({
+        //         targetArticles: this.state.targetArticles.concat(response)
+        //     }));    
+        // }
     }
 
     render() {

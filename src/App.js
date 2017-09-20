@@ -17,6 +17,8 @@ import keywords from './config/keywords';
 import Scroll from 'react-scroll';
 import { updateAppLastPage } from './actions';
 // import LinearProgress from 'material-ui/LinearProgress';
+var request = require('request');
+var rp = require('request-promise');
 
 var ScrollLink   = Scroll.Link;
 // var ScrollElement    = Scroll.Element;
@@ -37,6 +39,8 @@ class App extends Component {
             $polling: false,
             openSearchDialog: false,
             searchArticleValue: "",
+            validDate: [],
+            articles: []
         };
     };
 
@@ -133,13 +137,154 @@ class App extends Component {
         }
     }
 
-    componentWillMount() {
-        this._fetchData();
-        this.props.app._findLastPagePromise()
-        .then(page => {
-            console.log('last page', page);
-            this.props.dispatch(updateAppLastPage(page));
+    _findTags = str => {
+        let idTags = [];
+        let keyTags = [];
+        let typeTags = [];
+
+        // match type
+        const chatRegExp = new RegExp('^\\[閒聊\\].+盤.+閒聊');
+        if(str.match(chatRegExp)){
+            typeTags.push('chat');
+        }
+
+        // match keywords
+        for(let stock_id in keywords){
+            const re = new RegExp(keywords[stock_id].keys.join('|'));
+            const match = str.match(re);
+            if(match && keyTags.indexOf(match[0]) === -1){
+               keyTags.push(match[0]);
+                if(idTags.indexOf(stock_id) === -1){
+                    idTags.push(stock_id);
+                }
+            }
+        }    
+
+        // match id
+        const re2 = new RegExp(/.*(\d{4}).*/);
+        const match2 = str.match(re2);
+        if(match2 && idTags.indexOf(match2[1]) === -1){
+            idTags.push(match2[1]);
+        }
+
+        return {
+            idTags,
+            keyTags,
+            typeTags
+        }
+    }
+
+    _parseArticles = (articles) => {
+        articles = articles.map(article => {
+            return {
+                article: article,
+                tags: this._findTags(article.title)
+            }
+        });
+
+        this.setState({
+            articles: this.state.articles.concat(articles)
         })
+    }
+
+    _fetchArticles = (page, callback) => {
+        // console.log('page', page);
+        const main = this;
+
+        this.setState({
+            infoStatus: 'loading'
+        });
+
+        const promise = fetch(`https://www.ptt.cc/bbs/Stock/index${page}.html`)
+        .then( response => {
+            return response.text();
+        })
+        .then( html => {
+            return htmlToJson.parse(html, {
+                'articles': function ($doc) {
+                // ex. link would be <a href="/bbs/PublicServan/M.1127742013.A.240.html">Re: [問題] 職等</a>
+                return this.map('.r-ent', function($item, index){
+                    const $titleA = $item.find('.title a');
+                    const href = $titleA.attr('href');
+                    return {
+                        title: $titleA.text(),
+                        id: href ? href.split('/')[3].replace('.html', '') : false,
+                        href: href,
+                        date: $item.find('.meta .date').text().trim(),
+                        mark: $item.find('.mark').text().trim(),
+                    };
+                })
+            }            
+            });
+        })
+        .then( data => {
+            
+            let done = false;
+
+            const articles = data.articles.reverse().filter((article, index) => {
+                let result = true;
+                if(!article.id || article.mark === '!'){
+                    result = false;
+                }
+                if(result && this.state.validDate.length > 0){
+
+                    if(this.state.validDate.indexOf(article.date) === -1){
+                        result = false;
+                        done = true;
+                    }
+                }
+                return result;
+            })
+            if(callback instanceof Function){
+                // console.log(articles);
+                callback(articles);
+            }
+            if(!done){
+                return this._fetchArticles(page-1, callback);
+            }
+        })
+        .catch( error => {
+            // console.log(error);
+            this.setState({
+                infoStatus: 'error'
+            });
+        })
+
+        return promise;
+    }
+
+    _init = (startPage) => {
+        startPage = startPage || "";
+        const validDays = 3;
+
+        // create valid date array
+        let validDate = [];
+        let now = new Date();
+        validDate.push(now);
+        for(let i = 1 ; i <= validDays ; i++){
+            let d = new Date();
+            d.setDate(now.getDate() - i);
+            validDate.push(d);
+        }
+        validDate = validDate.map(d => (d.getMonth()+1) + '/' + d.getDate());
+
+        this.setState({
+            validDate: validDate
+        }, () => {
+            this._fetchArticles(startPage, articles => this._parseArticles(articles))
+            .then( () => {
+                console.log(this.state.articles);
+            })
+        })
+    }
+
+    componentWillMount() {
+        // this._fetchData();
+        // this.props.app._findLastPagePromise()
+        // .then(page => {
+        //     console.log('last page', page);
+        //     this.props.dispatch(updateAppLastPage(page));
+        // })
     }
 
     componentDidUpdate(){
@@ -147,7 +292,107 @@ class App extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => this._attachPoller(), 3000);
+        this.props.app._findLastPagePromise()
+        .then(page => {
+            this._init(page);
+        });
+        
+
+
+        // setTimeout(() => this._attachPoller(), 3000);
+
+        // var options = {
+        //     uri: 'http://mis.twse.com.tw/index.jsp?lang=zh_tw&stock=6180',
+        //     // transform: function (body) {
+        //     //     return cheerio.load(body);
+        //     // }
+        // };
+
+        // var j = request.jar()
+
+        // var url = 'http://mis.twse.com.tw/stock/';
+
+        // fetch(url,{
+        //   method: 'GET',
+        //   credentials: "include",
+        //   headers: {
+        //     'Accept-Language': 'zh-TW',
+        //   },
+        // })
+        // .then( function(response) {
+        //     console.log(response);
+        //     return response;
+        // })
+
+        // return;
+        // var j = request.jar()
+        // request({url: url, jar: j}, function () {
+        //   var cookie_string = j.getCookieString(url); // "key1=value1; key2=value2; ..."
+        //   var cookies = j.getCookies(url);
+        //   console.log(cookie_string);
+        //   console.log(cookies);
+        //   // [{key: 'key1', value: 'value1', domain: "www.google.com", ...}, ...]
+        // })
+        // return;
+
+        // var req = request.defaults({jar: request.jar()})
+        // req('http://mis.twse.com.tw/stock/index.jsp', function (err, response, body) {
+        //   console.log(response);
+        // })
+        // return;
+
+        // var options = {
+        //   url: 'http://mis.twse.com.tw/stock/index.jsp',
+        //   jar: true,
+        //   headers: {
+        //     'Accept-Language': 'zh-TW',
+        //   },
+        //   resolveWithFullResponse: true
+        // };
+
+        // rp(options)
+        // .then(function (response) {
+        //     // var cookiejar = rp.jar();
+        //     // cookiejar.setCookie(cookie, 'https://api.mydomain.com');
+        //     // console.log(j.getCookies('http://mis.twse.com.tw'));
+        //     console.log(response);
+        //     // console.log(response);
+        // })
+        // .then(function (response) {
+        //     var now = new Date();
+        //     var options = {
+        //       url: 'http://mis.twse.com.tw/stock/api/getStock.jsp?ch=6180.tw&json=1&_=' + now.getTime(),
+        //       // headers: {
+        //       //   'Accept-Language': 'zh-TW',
+        //       // }
+        //     };
+        //     return rp(options)
+        //     .then(function (response) {
+        //         console.log(JSON.parse(response));
+        //         var j = JSON.parse(response);
+        //         console.log(j.msgArray);
+        //         // console.log(response.msgArray[0].key);
+        //         var now = new Date();
+        //         var url = `http://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=${j.msgArray[0].key}&json=1&delay=0&_=${now.getTime()}`;
+        //         console.log(url);
+        //         var options = {
+        //           url: url,
+        //           credentials: 'include'
+        //           // headers: {
+        //           //   'Accept-Language': 'zh-TW',
+        //           // }
+        //         };
+        //         return rp(options)
+        //         .then(function (response) {
+        //             console.log(response);
+
+                    
+        //         })
+
+        //     })
+        // })
+        // .catch(function (err) {
+        // });
     }
 
     benchTime = time => {
@@ -230,89 +475,94 @@ class App extends Component {
           infoStatus 
         } = this.state;
 
-        if (infoStatus === 'loaded' && this.props.app.lastPage) {
-            const messages = this.state.messages.filter(msg => msg.userid !== "");
-            const stocks = this.parseMessages(messages);
-            const polling = this.state.polling;
-            const stockChildren = stocks.map( (stock, index) => <StockCard key={index} stock_id={stock.stock_id} messages={stock.messages}/>);
+        // if (infoStatus === 'loaded' && this.props.app.lastPage) {
+        if (infoStatus === 'loaded') {
+            return <div>loaded...</div>;
 
-            let totalMessages = 0;
-            stocks.forEach(stock => {
-                const l = stock.messages.length;
-                if(l > totalMessages) {
-                    totalMessages = l;
-                }
-            });
-            const rankChildren = stocks.map( (stock, index) => {
-                const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
-                return (
-                    <ScrollLink 
-                        key={'rank-'+index} 
-                        activeClass="active" 
-                        className='rank-scroll-link'
-                        to={`stock-${stock.stock_id}`} 
-                        // spy={true} 
-                        smooth={true} 
-                        offset={0}
-                        duration={500} 
-                        containerId='stockContainer'>
-                            <StockHeader 
-                                stock_id={stock.stock_id} 
-                                comments={stock.messages.length}
-                                percentage={Math.floor(stock.messages.length/totalMessages*70)}
-                                keys={keys}
-                            />
-                    </ScrollLink>
-                )
-            });
+            // const messages = this.state.messages.filter(msg => msg.userid !== "");
+            // const stocks = this.parseMessages(messages);
+            // const polling = this.state.polling;
+            // const stockChildren = stocks.map( (stock, index) => <StockCard key={index} stock_id={stock.stock_id} messages={stock.messages}/>);
 
-            // const allMessages = this.state.messages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime))
-            const msgChildren = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime))
-                .map( (msg, index) => {
-                return (
-                    <ScrollLink 
-                        key={'msg-'+index} 
-                        // activeClass="active" 
-                        // className='rank-scroll-link'
-                        to={`stock-${msg.idTags[0]}`} 
-                        // spy={true} 
-                        smooth={true} 
-                        offset={0}
-                        duration={500} 
-                        containerId='stockContainer'>
-                            <StockMessage
-                                index={index+1}
-                                userid={msg.userid}
-                                content={msg.content}
-                                ipdatetime={msg.ipdatetime.split(' ')[1]}
-                                idTags={msg.idTags}
-                                keyTags={msg.keyTags}
-                            >
-                            </StockMessage>
-                    </ScrollLink>
-                )
-            });
+            // let totalMessages = 0;
+            // stocks.forEach(stock => {
+            //     const l = stock.messages.length;
+            //     if(l > totalMessages) {
+            //         totalMessages = l;
+            //     }
+            // });
+            // const rankChildren = stocks.map( (stock, index) => {
+            //     const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
+            //     return (
+            //         <ScrollLink 
+            //             key={'rank-'+index} 
+            //             activeClass="active" 
+            //             className='rank-scroll-link'
+            //             to={`stock-${stock.stock_id}`} 
+            //             // spy={true} 
+            //             smooth={true} 
+            //             offset={0}
+            //             duration={500} 
+            //             containerId='stockContainer'>
+            //                 <StockHeader 
+            //                     stock_id={stock.stock_id} 
+            //                     comments={stock.messages.length}
+            //                     percentage={Math.floor(stock.messages.length/totalMessages*70)}
+            //                     keys={keys}
+            //                 />
+            //         </ScrollLink>
+            //     )
+            // });
 
-            return <div className='App'>
-                <TopBar {...this.props} className="TopBar" title={this.state.article_title}>
-                    <div id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>
-                </TopBar>
-                <div className='main'>
-                    <div className='rank-list'>
-                        {rankChildren}
-                    </div>
-                    <div id='stockContainer' className='stock-list'>
-                        {stockChildren}
-                    </div>
-                    <div id='allContainer' className='all-msg-list'>
-                        {msgChildren}
-                    </div>
-                </div>
-            </div>
+            // // const allMessages = this.state.messages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime))
+            // const msgChildren = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime))
+            //     .map( (msg, index) => {
+            //     return (
+            //         <ScrollLink 
+            //             key={'msg-'+index} 
+            //             // activeClass="active" 
+            //             // className='rank-scroll-link'
+            //             to={`stock-${msg.idTags[0]}`} 
+            //             // spy={true} 
+            //             smooth={true} 
+            //             offset={0}
+            //             duration={500} 
+            //             containerId='stockContainer'>
+            //                 <StockMessage
+            //                     index={index+1}
+            //                     userid={msg.userid}
+            //                     content={msg.content}
+            //                     ipdatetime={msg.ipdatetime.split(' ')[1]}
+            //                     idTags={msg.idTags}
+            //                     keyTags={msg.keyTags}
+            //                 >
+            //                 </StockMessage>
+            //         </ScrollLink>
+            //     )
+            // });
+
+            // return <div className='App'>
+            //     <TopBar {...this.props} className="TopBar" title={this.state.article_title}>
+            //         <div id="article-polling" data-offset={polling['data-offset']} data-longpollurl={polling['data-longpollurl']} data-pollurl={polling['data-pollurl']}/>
+            //     </TopBar>
+            //     <div className='main'>
+            //         <div className='rank-list'>
+            //             {rankChildren}
+            //         </div>
+            //         <div id='stockContainer' className='stock-list'>
+            //             {stockChildren}
+            //         </div>
+            //         <div id='allContainer' className='all-msg-list'>
+            //             {msgChildren}
+            //         </div>
+            //     </div>
+            // </div>
         }else if (infoStatus === 'loading') {
             return <div>Loading...</div>;
         }else if (infoStatus === 'error') {
             return <div>Error!!!</div>;
+        }else{
+            return <div>Nothing!!!</div>;
         }
 
     }
