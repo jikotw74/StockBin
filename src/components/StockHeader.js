@@ -1,7 +1,40 @@
 import React, { Component } from 'react';
 import './StockHeader.css';
-// var rp = require('request-promise');
-// var cheerio = require('cheerio'); // Basically jQuery for node.js
+import Badge from 'material-ui/Badge';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import AnnouncementIcon from 'material-ui/svg-icons/action/announcement';
+
+const TargetArticles = (props) => {
+    const openArticle = href => event => {
+        window.open("http://www.ptt.cc" + href, "_blank");
+    }
+
+    const menuItems = props.articles.map((item, index) => {
+        return <MenuItem key={index} primaryText={item.date + " " + item.title} onClick={openArticle(item.href)}/>
+    });
+
+    return ( 
+        <div className="TargetArticles">
+            <Badge
+                badgeContent={props.articles.length}
+                secondary={true}
+                badgeStyle={{top: 18, right: 18}}
+            >
+            <IconMenu
+                iconButtonElement={
+                    <IconButton tooltip="標的文"><AnnouncementIcon/></IconButton>
+                }
+                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+            >
+                {menuItems} 
+            </IconMenu>
+            </Badge>
+        </div>
+    )
+};
 
 class StockHeader extends Component {
     constructor(props) {
@@ -14,105 +47,12 @@ class StockHeader extends Component {
         };
     }
 
-    // _fetchStock = () => {
-    //     const main = this;
-    //     const now = new Date();
-
-    //     var options = {
-    //         uri: 'http://mis.twse.com.tw/stock/api/getStockInfo.jsp',
-    //         qs: {
-    //             // access_token: 'xxxxx xxxxx' // -> uri + '?access_token=xxxxx%20xxxxx'
-    //             ex_ch: 'tse_6116.tw',
-    //             json: '1',
-    //             delay: '0',
-    //             _: now.getTime()
-    //         },
-    //         headers: {
-    //             'User-Agent': 'Request-Promise'
-    //         },
-    //         json: true // Automatically parses the JSON string in the response
-    //     };
-
-    //     rp(options)
-    //         .then(function (response) {
-    //             console.log(response);
-    //             // Process html like you would with jQuery...
-    //         })
-    //         .catch(function (err) {
-    //             // Crawling failed or Cheerio choked...
-    //         });
-
-    //     // fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=50a34e070dd5c09a99554b57ab7ea7e2`)
-    //     // fetch(`http://mis.twse.com.tw/stock/api/getStock.jsp?ch=${this.state.stock_id}.tw&json=1&delay=0`)
-    //     // .then( function(response) {
-    //     //     return response.json()
-    //     // })
-    //     // .then( function(response) {
-    //     //     // console.log(1, response);
-
-    //     //     let data = false;
-    //     //     if(response.msgArray){
-    //     //         data = response.msgArray[0]
-    //     //     }
-
-    //     //     if(data.n){
-    //     //         main.setState({
-    //     //             stock_ex_id: data.key
-    //     //         }, () => {
-    //     //             setTimeout( () => {
-    //     //                 main._fetchStockInfo();
-    //     //             }, 300);
-    //     //         });
-    //     //     }
-    //     // })
-    //     // .catch( function(error) {
-    //     //     console.log(error);
-    //     // });
-    // };
-
-    //  _fetchStockInfo = () => {
-    //     if(!this.state.stock_ex_id){
-    //         return;
-    //     }
-    //     const main = this;
-    //     const now = new Date();
-
-    //     // fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=50a34e070dd5c09a99554b57ab7ea7e2`)
-    //     console.log(this.state.stock_ex_id);
-    //     fetch(`http://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=${this.state.stock_ex_id}&json=1&delay=0&_=${now.getTime()}`)
-    //     .then( function(response) {
-    //         console.log(2, response);
-    //         return response.json()
-    //     })
-    //     .then( function(response) {
-    //         // console.log(2, response);
-
-    //         let data = false;
-    //         if(response.msgArray){
-    //             data = response.msgArray[0]
-    //         }
-            
-    //         if(data && data.n){
-    //             main.setState({
-    //                 stock_now_price: data.z,
-    //                 stock_now_percentage: ((data.z - data.y) / data.y * 100).toFixed(2)
-    //             });
-    //         }
-    //     })
-    //     .catch( function(error) {
-    //         console.log(error);
-    //     });
-    // };
-
-    // componentDidMount(){
-    //     // setTimeout(() => this._fetchStock(), 500);
-    // }
-
     render() {
         let className = "StockHeader";
         if(this.props.selected)className += " selected";
         const percentage = this.props.percentage || 0;
         const comments = this.props.comments;
+        const targetArticles = this.props.targetArticles || [];
 
         const rankStyle = {
             width: percentage + '%'
@@ -137,7 +77,8 @@ class StockHeader extends Component {
                 </div>
                 <div className='StockHeader-keys'>
                     {this.props.keys && this.props.keys.map( (name, index) => <div key={index} className='StockHeader-key'>{name}</div>)}
-                </div>  
+                </div>
+                {targetArticles.length > 0 && <TargetArticles articles={targetArticles}/>}  
             </div>
         );
     }

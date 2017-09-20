@@ -24,7 +24,8 @@
 
 .StockMessage-tags {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  flex-wrap: wrap; }
 
 .StockMessage-idTags {
   display: flex; }
@@ -37,7 +38,8 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  background-color: #DDD; }
+  background-color: #DDD;
+  white-space: nowrap; }
   .StockMessage-idTag:before {
     content: "#"; }
 
@@ -50,7 +52,8 @@
   border-radius: 5px;
   padding: 0.2em 0.5em;
   margin: 0.3em;
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  white-space: nowrap; }
 
 .StockMessage-index {
   color: #4CAF50;

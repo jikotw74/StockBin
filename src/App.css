@@ -28,24 +28,6 @@
   overflow: auto;
   background-color: #EDEDED; }
 
-.stock-element {
-  border: 1px solid #CCC;
-  border-radius: 5px;
-  margin: 20px 20px 10px 20px;
-  padding: 10px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; }
-
-.stock-element-msg-list {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  flex-shrink: 0;
-  overflow: auto;
-  max-height: 50vh; }
-  .stock-element-msg-list .StockMessage {
-    width: 100%; }
-
 .rank-list {
   display: flex;
   flex-direction: column;
@@ -53,13 +35,10 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
   overflow: auto;
   height: 100%; }
-  .rank-list .rank-scroll-link {
-    opacity: 0.5; }
-    .rank-list .rank-scroll-link.active {
-      background-color: #E3F2FD;
-      opacity: 1; }
-    .rank-list .rank-scroll-link:last-child .StockHeader {
-      border-bottom: 0px; }
+  .rank-list .rank-scroll-link:hover {
+    background-color: #E3F2FD; }
+  .rank-list .rank-scroll-link:last-child .StockHeader {
+    border-bottom: 0px; }
   .rank-list .StockHeader {
     flex-direction: column;
     align-items: flex-start;
@@ -73,7 +52,8 @@
 
 #stockContainer {
   position: relative;
-  overflow: auto; }
+  overflow-y: auto;
+  overflow-x: hidden; }
   #stockContainer > div:last-child {
     padding-bottom: 80vh; }
 

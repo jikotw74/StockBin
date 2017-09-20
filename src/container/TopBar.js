@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './TopBar.css';
+import { connect } from 'react-redux'
 import AppBar from 'material-ui/AppBar';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -8,7 +9,7 @@ import SearchIcon from 'material-ui/svg-icons/action/search';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import htmlToJson from 'html-to-json';
+// import htmlToJson from 'html-to-json';
 
 class TopBar extends Component {
     constructor(props) {
@@ -16,55 +17,49 @@ class TopBar extends Component {
         this.state = {
             openSearchDialog: false,
             searchArticleValue: "",
-            last_article_title: false,
-            last_article_id: false
+            optionArticles: []
         };
     }
 
     _fetchLastArticle = () => {
-        const main = this;
+        const _findArticlePromise = this.props.app._findArticlePromise;
 
-        // fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=50a34e070dd5c09a99554b57ab7ea7e2`)
-        fetch(`https://www.ptt.cc/bbs/Stock/index.html`)
-        .then( function(response) {
-            return response.text();
-        })
-        .then( function(html) {
-            // console.log(html)
-            return htmlToJson.parse(html, {
-                'articles': function ($doc) {
-                    // ex. link would be <a href="/bbs/PublicServan/M.1127742013.A.240.html">Re: [問題] 職等</a>
-                    return this.map('.r-ent .title a', function($item, index){
-                        return {
-                            title: $item.text(),
-                            id: $item.attr('href').split('/')[3].replace('.html', ''),
-                        };
+        if(this.props.app.lastPage){
+            this.setState({
+                optionArticles: []
+            }, () => {
+                _findArticlePromise(/盤中閒聊/, {
+                    pageFrom: this.props.app.lastPage,
+                    inDays: 2,
+                })
+                .then(results => {
+                    this.setState({
+                        optionArticles: this.state.optionArticles.concat(results)
+                    });
+                    return _findArticlePromise(/盤後閒聊/, {
+                        pageFrom: this.props.app.lastPage,
+                        inDays: 2,
                     })
-                },             
-            });
-        })
-        .then( function(data) {
-            // console.log(data);
-            const last = data.articles[data.articles.length-1];
-            if(last)setTimeout( function() {
-                main.setState({
-                    last_article_title: last.title,
-                    last_article_id: last.id
+                    .then(results => {
+                        this.setState({
+                            optionArticles: this.state.optionArticles.concat(results)
+                        });
+                    })
+                })
+                .catch( function(error) {
+                    console.log(error);
                 });
-            }, 300);
-        })
-        .catch( function(error) {
-            console.log(error);
-        });
+            });
+            
+        }
     };
 
-    componentDidMount(){
-        setTimeout(() => this._fetchLastArticle(), 1000);
+    componentWillMount(){
+        this._fetchLastArticle();
     }
 
     articleChange = event => {
         this.props.history.push("/" + event.target.value);
-        // this._fetchData(event.target.value);
     }
 
     openSearchDialog = () => {
@@ -96,8 +91,11 @@ class TopBar extends Component {
     render() {
         let className = "TopBar";
 
-        const ActionsMenu = (props) => (
-            <IconMenu
+        const ActionsMenu = (props) => {
+            const menuItems = this.state.optionArticles.map((item, index) => {
+                return <MenuItem key={index} primaryText={item.title} onClick={this.searchArticleById(item.id)}/>
+            });
+            return <IconMenu
                 {...props}
                 iconButtonElement={
                     <IconButton><SearchIcon color='white'/></IconButton>
@@ -105,10 +103,10 @@ class TopBar extends Component {
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
             >
-                {this.state.last_article_title && <MenuItem primaryText={this.state.last_article_title} onClick={this.searchArticleById(this.state.last_article_id)}/>} 
+                {menuItems} 
                 <MenuItem primaryText="搜尋文章ID" onClick={this.openSearchDialog}/>
             </IconMenu>
-        );
+        }
         ActionsMenu.muiName = 'IconMenu';
 
         const dialogSearchActions = [
@@ -155,4 +153,8 @@ class TopBar extends Component {
     }
 }
 
+const mapStateToProps = state => {
+  return { app: state.app }
+}
+TopBar = connect(mapStateToProps)(TopBar);
 export default TopBar;
