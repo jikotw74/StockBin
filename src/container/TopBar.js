@@ -17,45 +17,8 @@ class TopBar extends Component {
         this.state = {
             openSearchDialog: false,
             searchArticleValue: "",
-            optionArticles: []
+            optionArticles: props.chatArticles
         };
-    }
-
-    _fetchLastArticle = () => {
-        const _findArticlePromise = this.props.app._findArticlePromise;
-
-        if(this.props.app.lastPage){
-            this.setState({
-                optionArticles: []
-            }, () => {
-                _findArticlePromise(/盤中閒聊/, {
-                    pageFrom: this.props.app.lastPage,
-                    inDays: 2,
-                })
-                .then(results => {
-                    this.setState({
-                        optionArticles: this.state.optionArticles.concat(results)
-                    });
-                    return _findArticlePromise(/盤後閒聊/, {
-                        pageFrom: this.props.app.lastPage,
-                        inDays: 2,
-                    })
-                    .then(results => {
-                        this.setState({
-                            optionArticles: this.state.optionArticles.concat(results)
-                        });
-                    })
-                })
-                .catch( function(error) {
-                    console.log(error);
-                });
-            });
-            
-        }
-    };
-
-    componentWillMount(){
-        this._fetchLastArticle();
     }
 
     articleChange = event => {
@@ -93,7 +56,7 @@ class TopBar extends Component {
 
         const ActionsMenu = (props) => {
             const menuItems = this.state.optionArticles.map((item, index) => {
-                return <MenuItem key={index} primaryText={item.title} onClick={this.searchArticleById(item.id)}/>
+                return <MenuItem key={index} primaryText={item.article.title} onClick={this.searchArticleById(item.article.id)}/>
             });
             return <IconMenu
                 {...props}
