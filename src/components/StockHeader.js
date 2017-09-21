@@ -12,7 +12,7 @@ const TargetArticles = (props) => {
     }
 
     const menuItems = props.articles.map((item, index) => {
-        return <MenuItem key={index} primaryText={item.date + " " + item.title} onClick={openArticle(item.href)}/>
+        return <MenuItem key={index} primaryText={item.article.date + " " + item.article.title} onClick={openArticle(item.article.href)}/>
     });
 
     return ( 

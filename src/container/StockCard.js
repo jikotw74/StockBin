@@ -41,7 +41,7 @@ class StockCard extends Component {
 
         return <ScrollElement name={`stock-${stock_id}`}>
             <div className={className}>
-                <StockHeader stock_id={stock_id} keys={keys} targetArticles={this.state.targetArticles}/>
+                <StockHeader stock_id={stock_id} keys={keys} targetArticles={this.props.targetArticles}/>
                 <div className='StockCard-msg-list'>
                     {messages.map((item, index) => (
                         <StockMessage
