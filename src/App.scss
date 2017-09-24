@@ -71,9 +71,18 @@
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    .StockMessage{
+        cursor: pointer;
+        &:hover{
+            background-color: #E3F2FD;
+        }
+    }
     >div:last-child{
         padding-bottom: 80vh;
     }
+}
+#msgContainer{
+    position: relative;
 }
 
 .all-msg-list{

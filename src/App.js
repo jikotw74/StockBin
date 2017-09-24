@@ -21,7 +21,7 @@ import Scroll from 'react-scroll';
 // var rp = require('request-promise');
 
 var ScrollLink   = Scroll.Link;
-// var ScrollElement    = Scroll.Element;
+var ScrollElement    = Scroll.Element;
 
 class App extends Component {
     constructor(props) {
@@ -293,20 +293,9 @@ class App extends Component {
     }
 
     componentWillMount() {
-        // this._fetchData();
-        // this.props.app._findLastPagePromise()
-        // .then(page => {
-        //     console.log('last page', page);
-        //     this.props.dispatch(updateAppLastPage(page));
-        // })
-        // this.props.app._findLastPagePromise()
-        // .then(page => {
-        //     this._init(page);
-        // });
     }
 
     componentDidUpdate(){
-        // setTimeout(() => this._attachPoller(), 3000);
     }
 
     componentDidMount() {
@@ -314,103 +303,6 @@ class App extends Component {
         .then(page => {
             this._init(page);
         });
-        
-
-
-        // setTimeout(() => this._attachPoller(), 3000);
-
-        // var options = {
-        //     uri: 'http://mis.twse.com.tw/index.jsp?lang=zh_tw&stock=6180',
-        //     // transform: function (body) {
-        //     //     return cheerio.load(body);
-        //     // }
-        // };
-
-        // var j = request.jar()
-
-        // var url = 'http://mis.twse.com.tw/stock/';
-
-        // fetch(url,{
-        //   method: 'GET',
-        //   credentials: "include",
-        //   headers: {
-        //     'Accept-Language': 'zh-TW',
-        //   },
-        // })
-        // .then( function(response) {
-        //     console.log(response);
-        //     return response;
-        // })
-
-        // return;
-        // var j = request.jar()
-        // request({url: url, jar: j}, function () {
-        //   var cookie_string = j.getCookieString(url); // "key1=value1; key2=value2; ..."
-        //   var cookies = j.getCookies(url);
-        //   console.log(cookie_string);
-        //   console.log(cookies);
-        //   // [{key: 'key1', value: 'value1', domain: "www.google.com", ...}, ...]
-        // })
-        // return;
-
-        // var req = request.defaults({jar: request.jar()})
-        // req('http://mis.twse.com.tw/stock/index.jsp', function (err, response, body) {
-        //   console.log(response);
-        // })
-        // return;
-
-        // var options = {
-        //   url: 'http://mis.twse.com.tw/stock/index.jsp',
-        //   jar: true,
-        //   headers: {
-        //     'Accept-Language': 'zh-TW',
-        //   },
-        //   resolveWithFullResponse: true
-        // };
-
-        // rp(options)
-        // .then(function (response) {
-        //     // var cookiejar = rp.jar();
-        //     // cookiejar.setCookie(cookie, 'https://api.mydomain.com');
-        //     // console.log(j.getCookies('http://mis.twse.com.tw'));
-        //     console.log(response);
-        //     // console.log(response);
-        // })
-        // .then(function (response) {
-        //     var now = new Date();
-        //     var options = {
-        //       url: 'http://mis.twse.com.tw/stock/api/getStock.jsp?ch=6180.tw&json=1&_=' + now.getTime(),
-        //       // headers: {
-        //       //   'Accept-Language': 'zh-TW',
-        //       // }
-        //     };
-        //     return rp(options)
-        //     .then(function (response) {
-        //         console.log(JSON.parse(response));
-        //         var j = JSON.parse(response);
-        //         console.log(j.msgArray);
-        //         // console.log(response.msgArray[0].key);
-        //         var now = new Date();
-        //         var url = `http://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=${j.msgArray[0].key}&json=1&delay=0&_=${now.getTime()}`;
-        //         console.log(url);
-        //         var options = {
-        //           url: url,
-        //           credentials: 'include'
-        //           // headers: {
-        //           //   'Accept-Language': 'zh-TW',
-        //           // }
-        //         };
-        //         return rp(options)
-        //         .then(function (response) {
-        //             console.log(response);
-
-                    
-        //         })
-
-        //     })
-        // })
-        // .catch(function (err) {
-        // });
     }
 
     benchTime = time => {
@@ -425,10 +317,11 @@ class App extends Component {
     parseMessages = messages => {
         // set tags
         // messages = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime));
-        messages.forEach(msg => {
+        messages.forEach((msg, index) => {
             const tags = this._findTags(msg.content);
             msg.idTags = tags.idTags;
             msg.keyTags = tags.keyTags;
+            msg.message_id = index+1;
         });
 
         let allStockIds = [];
@@ -454,6 +347,7 @@ class App extends Component {
 
                 // stock msg obj
                 return {
+                    message_id: msg.message_id,
                     userid: msg.userid,
                     ipdatetime: msg.ipdatetime,
                     content: relatedMessages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime)).map(item => item.content)
@@ -516,8 +410,7 @@ class App extends Component {
             });
 
             // const allMessages = this.state.messages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime))
-            const msgChildren = messages.sort((a, b) => this.benchTime(a.ipdatetime) - this.benchTime(b.ipdatetime))
-                .map( (msg, index) => {
+            const msgChildren = messages.map( (msg, index) => {
                 return (
                     <ScrollLink 
                         key={'msg-'+index} 
@@ -528,16 +421,19 @@ class App extends Component {
                         smooth={true} 
                         offset={0}
                         duration={500} 
+                        isDynamic={true}
                         containerId='stockContainer'>
-                            <StockMessage
-                                index={index+1}
-                                userid={msg.userid}
-                                content={msg.content}
-                                ipdatetime={msg.ipdatetime.split(' ')[1]}
-                                idTags={msg.idTags}
-                                keyTags={msg.keyTags}
-                            >
-                            </StockMessage>
+                            <ScrollElement name={`msg-${msg.message_id}`}>
+                                <StockMessage
+                                    index={msg.message_id}
+                                    userid={msg.userid}
+                                    content={msg.content}
+                                    ipdatetime={msg.ipdatetime.split(' ')[1]}
+                                    idTags={msg.idTags}
+                                    keyTags={msg.keyTags}
+                                >
+                                </StockMessage>
+                            </ScrollElement>
                     </ScrollLink>
                 )
             });
@@ -565,7 +461,7 @@ class App extends Component {
                     <div id='stockContainer' className='stock-list'>
                         {stockChildren}
                     </div>
-                    <div id='allContainer' className='all-msg-list'>
+                    <div id='msgContainer' className='all-msg-list'>
                         {msgChildren}
                     </div>
                 </div>

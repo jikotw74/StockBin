@@ -6,7 +6,7 @@ import StockHeader from '../components/StockHeader';
 import keywords from '../config/keywords';
 import Scroll from 'react-scroll';
 
-// var ScrollLink   = Scroll.Link;
+var ScrollLink   = Scroll.Link;
 var ScrollElement    = Scroll.Element;
 
 class StockCard extends Component {
@@ -44,13 +44,25 @@ class StockCard extends Component {
                 <StockHeader stock_id={stock_id} keys={keys} targetArticles={this.props.targetArticles}/>
                 <div className='StockCard-msg-list'>
                     {messages.map((item, index) => (
-                        <StockMessage
-                            key={index}
-                            userid={item.userid}
-                            content={item.content}
-                            ipdatetime={item.ipdatetime.split(' ')[1]}
-                        >
-                        </StockMessage>
+                        <ScrollLink 
+                            key={'stock-msg-'+index} 
+                            activeClass="active" 
+                            // className='rank-scroll-link'
+                            to={`msg-${item.message_id}`} 
+                            // spy={true} 
+                            smooth={true} 
+                            offset={0}
+                            duration={500} 
+                            containerId='msgContainer'>
+                                <StockMessage
+                                    key={index}
+                                    index={item.message_id}
+                                    userid={item.userid}
+                                    content={item.content}
+                                    ipdatetime={item.ipdatetime.split(' ')[1]}
+                                >
+                                </StockMessage>
+                        </ScrollLink>
                     ))}
                 </div>
             </div>
