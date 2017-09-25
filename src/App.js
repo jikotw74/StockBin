@@ -73,7 +73,7 @@ class App extends Component {
                             messages: main.state.messages.concat(data.messages)
                         }, () => {
                             setTimeout( () => {
-                                $('#allContainer').scrollTop($('#allContainer')[0].scrollHeight);    
+                                $('#msgContainer').scrollTop($('#msgContainer')[0].scrollHeight);    
                             }, 1500);
                         });
                     });
