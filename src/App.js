@@ -13,7 +13,6 @@ import StockMessage from './components/StockMessage';
 import StockHeader from './components/StockHeader';
 import TopBar from './container/TopBar';
 import StockCard from './container/StockCard';
-import keywords from './config/keywords';
 import Scroll from 'react-scroll';
 // import { updateAppLastPage } from './actions';
 // import LinearProgress from 'material-ui/LinearProgress';
@@ -96,7 +95,7 @@ class App extends Component {
             query = article;
         }
 
-        // fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=50a34e070dd5c09a99554b57ab7ea7e2`)
+        console.log('query', query);
         fetch(`https://www.ptt.cc/bbs/Stock/${query}.html`)
         .then( function(response) {
             return response.text();
@@ -152,10 +151,14 @@ class App extends Component {
         }
 
         // match keywords
-        for(let stock_id in keywords){
-            const re = new RegExp(keywords[stock_id].keys.join('|'));
+        for(let stock_id in this.props.app.DB){
+            const keys = this.props.app.DB[stock_id].keys;
+            if(keys.length == 0){
+                continue;
+            }
+            const re = new RegExp(this.props.app.DB[stock_id].keys.join('|'));
             const match = str.match(re);
-            if(match && keyTags.indexOf(match[0]) === -1){
+            if(match && match[0].length > 0 && keyTags.indexOf(match[0]) === -1){
                keyTags.push(match[0]);
                 if(idTags.indexOf(stock_id) === -1){
                     idTags.push(stock_id);
@@ -166,7 +169,7 @@ class App extends Component {
         // match id
         const re2 = new RegExp(/.*(\d{4}).*/);
         const match2 = str.match(re2);
-        if(match2 && idTags.indexOf(match2[1]) === -1){
+        if(match2 && this.props.app.DB[match2[1]] && idTags.indexOf(match2[1]) === -1){
             idTags.push(match2[1]);
         }
 
@@ -285,7 +288,6 @@ class App extends Component {
                 }
 
                 if(query_id){
-                    console.log('query_id', query_id);
                     this._fetchData(query_id);
                 }
             })
@@ -293,9 +295,18 @@ class App extends Component {
     }
 
     componentWillMount() {
+
     }
 
     componentDidUpdate(){
+        let article = false;
+        const match = this.props.match;
+        if(match && match.params && match.params.id){
+            article = match.params.id;   
+        }
+        if(article && (article !== this.state.article) && (this.state.infoStatus === 'loaded')){
+            this._fetchData(article);
+        }
     }
 
     componentDidMount() {
@@ -387,7 +398,7 @@ class App extends Component {
                 }
             });
             const rankChildren = stocks.map( (stock, index) => {
-                const keys = keywords[stock.stock_id] ? keywords[stock.stock_id].keys : [];
+                const keys = this.props.app.DB[stock.stock_id] ? this.props.app.DB[stock.stock_id].keys : [];
                 return (
                     <ScrollLink 
                         key={'rank-'+index} 

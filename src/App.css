@@ -2,14 +2,12 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 .main {
   display: flex;
   overflow: hidden;
-  flex: 1;
-}
+  flex: 1; }
 
 #article-polling {
   font-family: 'MSJH', sans-serif;
@@ -18,20 +16,17 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .stock-input {
-  background-color: white;
-}
+  background-color: white; }
 
 .stock-list {
   display: flex;
   flex-direction: column;
   flex: 1;
   overflow: auto;
-  background-color: #EDEDED;
-}
+  background-color: #EDEDED; }
 
 .rank-list {
   display: flex;
@@ -39,59 +34,39 @@
   border-right: 1px solid #CCC;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
   overflow: auto;
-  height: 100%;
-}
-
-.rank-list .rank-scroll-link:hover {
-  background-color: #E3F2FD;
-}
-
-.rank-list .rank-scroll-link:last-child .StockHeader {
-  border-bottom: 0px;
-}
-
-.rank-list .StockHeader {
-  flex-direction: column;
-  align-items: flex-start;
-  cursor: pointer;
-  border-bottom: 1px solid #CCC;
-  padding: 0.3em;
-}
-
-.rank-list .StockHeader .StockHeader-header {
-  width: 100%;
-}
-
-.rank-list:last-child .StockHeader {
-  border-bottom: 0px;
-}
+  height: 100%; }
+  .rank-list .rank-scroll-link:hover {
+    background-color: #E3F2FD; }
+  .rank-list .rank-scroll-link:last-child .StockHeader {
+    border-bottom: 0px; }
+  .rank-list .StockHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+    border-bottom: 1px solid #CCC;
+    padding: 0.3em; }
+    .rank-list .StockHeader .StockHeader-header {
+      width: 100%; }
+  .rank-list:last-child .StockHeader {
+    border-bottom: 0px; }
 
 #stockContainer {
   position: relative;
   overflow-y: auto;
-  overflow-x: hidden;
-}
-
-#stockContainer .StockMessage {
-  cursor: pointer;
-}
-
-#stockContainer .StockMessage:hover {
-  background-color: #E3F2FD;
-}
-
-#stockContainer > div:last-child {
-  padding-bottom: 80vh;
-}
+  overflow-x: hidden; }
+  #stockContainer .StockMessage {
+    cursor: pointer; }
+    #stockContainer .StockMessage:hover {
+      background-color: #E3F2FD; }
+  #stockContainer > div:last-child {
+    padding-bottom: 80vh; }
 
 #msgContainer {
-  position: relative;
-}
+  position: relative; }
 
 .all-msg-list {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   flex: 1;
-  padding: 0 1em;
-}
+  padding: 0 1em; }

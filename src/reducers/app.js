@@ -1,4 +1,16 @@
 import htmlToJson from 'html-to-json';
+import keywords from '../config/keywords';
+import stockDB from '../config/stockDB';
+
+let DB = {};
+for(let stock_id in stockDB){
+    DB[stock_id] = stockDB[stock_id];
+
+    const key = keywords[stock_id];
+    if(key){
+        DB[stock_id].keys = DB[stock_id].keys.concat(key.keys);
+    }
+}
 
 const _findArticlePromise = (regexp, options) => {    
     regexp = regexp || new RegExp();
@@ -120,7 +132,8 @@ const _findLastPagePromise = () => {
 let initState = {
     lastPage: false,
     _findArticlePromise: _findArticlePromise,
-    _findLastPagePromise: _findLastPagePromise
+    _findLastPagePromise: _findLastPagePromise,
+    DB
 };
 
 const app = (state = initState, action) => {

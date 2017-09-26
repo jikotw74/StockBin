@@ -24,7 +24,7 @@ const TargetArticles = (props) => {
             >
             <IconMenu
                 iconButtonElement={
-                    <IconButton tooltip="三日內相關文章"><AnnouncementIcon/></IconButton>
+                    <IconButton tooltip="三日內文章"><AnnouncementIcon/></IconButton>
                 }
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}
