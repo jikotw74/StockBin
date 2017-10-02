@@ -223,7 +223,7 @@ class App extends Component {
             });
         })
         .then( data => {
-            
+            console.log('_fetchArticles', data);
             let done = false;
 
             const articles = data.articles.reverse().filter((article, index) => {
@@ -271,13 +271,19 @@ class App extends Component {
             d.setDate(now.getDate() - i);
             validDate.push(d);
         }
-        validDate = validDate.map(d => (d.getMonth()+1) + '/' + d.getDate());
+        validDate = validDate.map(d => {
+            let dateStr = d.getDate();
+            if(dateStr < 10){
+                dateStr = '0' + dateStr;
+            }
+            return (d.getMonth()+1) + '/' + dateStr
+        });
 
         this.setState({
             validDate: validDate
         }, () => {
             this._fetchArticles(startPage, articles => this._parseArticles(articles))
-            .then( () => {
+            .then( () => {                
                 const chatArticles = this.state.articles.filter(obj => obj.tags.typeTags.indexOf('chat') !== -1);
                 const match = this.props.match;
                 let query_id = false;
