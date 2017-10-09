@@ -18,7 +18,9 @@ import Scroll from 'react-scroll';
 // import LinearProgress from 'material-ui/LinearProgress';
 // var request = require('request');
 // var rp = require('request-promise');
-
+import io from 'socket.io-client';
+const stockMaUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://damp-garden-50966.herokuapp.com';
+const socket = io(stockMaUrl);
 var ScrollLink   = Scroll.Link;
 var ScrollElement    = Scroll.Element;
 
@@ -301,7 +303,10 @@ class App extends Component {
     }
 
     componentWillMount() {
-
+        socket.emit('test', 'world');
+        socket.on('test_response', function(data){
+            console.log(data);
+        });
     }
 
     componentDidUpdate(){
