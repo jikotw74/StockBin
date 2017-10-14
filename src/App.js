@@ -14,12 +14,13 @@ import StockHeader from './components/StockHeader';
 import TopBar from './container/TopBar';
 import StockCard from './container/StockCard';
 import Scroll from 'react-scroll';
-// import { updateAppLastPage } from './actions';
+import { updateStocks } from './actions';
 // import LinearProgress from 'material-ui/LinearProgress';
 // var request = require('request');
 // var rp = require('request-promise');
 import io from 'socket.io-client';
 const stockMaUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://damp-garden-50966.herokuapp.com';
+// const stockMaUrl = 'https://damp-garden-50966.herokuapp.com';
 const socket = io(stockMaUrl);
 var ScrollLink   = Scroll.Link;
 var ScrollElement    = Scroll.Element;
@@ -303,9 +304,10 @@ class App extends Component {
     }
 
     componentWillMount() {
-        socket.emit('test', 'world');
-        socket.on('test_response', function(data){
-            console.log(data);
+        socket.on('updateStocks', data =>{
+            console.log('updateStocks', data);
+            let stocks = Object.keys(data).map(key => data[key]);
+            this.props.dispatch(updateStocks(stocks));
         });
     }
 
@@ -355,6 +357,7 @@ class App extends Component {
             })
         });
 
+        //
         let allStock = allStockIds.map(stock_id => {
             let stockMessages = messages.filter(msg => msg.idTags.indexOf(stock_id) !== -1);
             stockMessages = stockMessages.map(msg => {
@@ -384,7 +387,13 @@ class App extends Component {
             }
         });
 
-        return allStock.sort((a, b) => b.messages.length - a.messages.length);
+        const result = allStock.sort((a, b) => b.messages.length - a.messages.length);
+
+        //
+        console.log('emit registStocks');
+        socket.emit('registStocks', result.map(stock => stock.stock_id));
+
+        return result;
     }
 
     render() {
@@ -399,7 +408,7 @@ class App extends Component {
             const messages = this.state.messages.filter(msg => msg.userid !== "");
             const stocks = this.parseMessages(messages);
             const polling = this.state.polling;
-            const stockChildren = stocks.map( (stock, index) => <StockCard key={index} stock_id={stock.stock_id} messages={stock.messages} targetArticles={stock.targetArticles}/>);
+            const stockChildren = stocks.map( (stock, index) => <StockCard key={stock.stock_id} stock_id={stock.stock_id} messages={stock.messages} targetArticles={stock.targetArticles}/>);
 
             let totalMessages = 0;
             stocks.forEach(stock => {
@@ -410,9 +419,10 @@ class App extends Component {
             });
             const rankChildren = stocks.map( (stock, index) => {
                 const keys = this.props.app.DB[stock.stock_id] ? this.props.app.DB[stock.stock_id].keys : [];
+                const info = this.props.stockInfo[stock.stock_id] ? this.props.stockInfo[stock.stock_id] : false;
                 return (
                     <ScrollLink 
-                        key={'rank-'+index} 
+                        key={stock.stock_id} 
                         activeClass="active" 
                         className='rank-scroll-link'
                         to={`stock-${stock.stock_id}`} 
@@ -425,6 +435,7 @@ class App extends Component {
                                 stock_id={stock.stock_id} 
                                 comments={stock.messages.length}
                                 percentage={Math.floor(stock.messages.length/totalMessages*70)}
+                                info={info}
                                 keys={keys}
                             />
                     </ScrollLink>
@@ -435,7 +446,7 @@ class App extends Component {
             const msgChildren = messages.map( (msg, index) => {
                 return (
                     <ScrollLink 
-                        key={'msg-'+index} 
+                        key={msg.message_id} 
                         // activeClass="active" 
                         // className='rank-scroll-link'
                         to={`stock-${msg.idTags[0]}`} 
@@ -500,7 +511,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return { app: state.app }
+    return { 
+        app: state.app,
+        stockInfo: state.stockInfo,
+    }
 }
 App = connect(mapStateToProps)(App);
 export default App;

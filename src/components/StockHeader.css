@@ -43,3 +43,16 @@
   position: absolute;
   top: -38px;
   right: -38px; }
+
+.StockHeader-price {
+  width: 90px;
+  color: #666; }
+  .StockHeader-price.is-up {
+    color: #f3746d; }
+  .StockHeader-price.is-down {
+    color: #6c9c46; }
+  .StockHeader-price .StockHeader-price-price {
+    font-size: 18px;
+    font-weight: bold; }
+  .StockHeader-price .StockHeader-price-diff {
+    font-size: 8px; }

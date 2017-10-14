@@ -21,12 +21,11 @@ class StockCard extends Component {
         const stock_id = this.props.stock_id
         const messages = this.props.messages || [];
         const keys = this.props.app.DB[stock_id] ? this.props.app.DB[stock_id].keys : [];
-
-        // console.log(this.props.app._findArticlePromise);
+        const info = this.props.stockInfo[stock_id] ? this.props.stockInfo[stock_id] : false;
 
         return <ScrollElement name={`stock-${stock_id}`}>
             <div className={className}>
-                <StockHeader stock_id={stock_id} keys={keys} targetArticles={this.props.targetArticles}/>
+                <StockHeader stock_id={stock_id} keys={keys} targetArticles={this.props.targetArticles} info={info}/>
                 <div className='StockCard-msg-list'>
                     {messages.map((item, index) => (
                         <ScrollLink 
@@ -56,7 +55,10 @@ class StockCard extends Component {
 }
 
 const mapStateToProps = state => {
-  return { app: state.app }
+    return { 
+        app: state.app,
+        stockInfo: state.stockInfo,
+    }
 }
 StockCard = connect(mapStateToProps)(StockCard);
 export default StockCard;

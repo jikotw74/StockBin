@@ -143,6 +143,19 @@ const app = (state = initState, action) => {
                 ...state, 
                 lastPage: action.page
             }
+        case 'UPDATE_DB_STOCKS':
+            const stocks = [].concat(action.stocks);
+            stocks.forEach(stock => {
+                state.DB[stock.id] = {
+                    ...state.DB[stock.id],
+                    openPrice: stock.openPrice,
+                    nowPrice: stock.nowPrice,
+                };
+            })
+            
+            return {
+                ...state
+            }
         default:
             return state
     }

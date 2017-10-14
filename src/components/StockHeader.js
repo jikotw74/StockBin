@@ -6,6 +6,23 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import AnnouncementIcon from 'material-ui/svg-icons/action/announcement';
 
+const StockInfo = (props) => {
+    const diffPrice = Number(props.nowPrice - props.lastPrice).toFixed(2);
+    let flag = 'is-flat';
+    if(diffPrice > 0){
+        flag = 'is-up';
+    }else if(diffPrice < 0){
+        flag = 'is-down';
+    }
+
+    const diffPercentage = Number(diffPrice / props.lastPrice * 100).toFixed(2);
+
+    return <div className={'StockHeader-price ' + flag}>
+        <div className='StockHeader-price-price'>{props.nowPrice}</div>
+        <div className='StockHeader-price-diff'>{`${diffPrice} (${diffPercentage}%)`}</div>
+    </div>
+}
+
 const TargetArticles = (props) => {
     const openArticle = href => event => {
         window.open("http://www.ptt.cc" + href, "_blank");
@@ -37,15 +54,15 @@ const TargetArticles = (props) => {
 };
 
 class StockHeader extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            stock_id: props.stock_id,
-            stock_ex_id: false,
-            stock_now_price: false,
-            stock_now_percentage: false,
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         stock_id: props.stock_id,
+    //         stock_ex_id: false,
+    //         stock_now_price: false,
+    //         stock_now_percentage: false,
+    //     };
+    // }
 
     render() {
         let className = "StockHeader";
@@ -63,15 +80,12 @@ class StockHeader extends Component {
                 <div className='StockHeader-header'>
                     <div className='StockHeader-name'>{"#"+this.props.stock_id}</div>
                     {
+                        this.props.info && <StockInfo {...this.props.info}/>
+                    }
+                    {
                         comments && (<div className='StockHeader-rank'>
                             <div className='StockHeader-rank-percentage' style={rankStyle}/>
                             <div className='StockHeader-rank-comments'>{comments + "則"}</div>
-                        </div>)
-                    }
-                    {
-                        this.state.stock_now_price && (<div className='StockHeader-price'>
-                            <div className='StockHeader-price-price'>{this.state.stock_now_price}</div>
-                            <div className='StockHeader-price-percentage'>{this.state.stock_now_percentage}</div>
                         </div>)
                     }
                 </div>
