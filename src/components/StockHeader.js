@@ -7,7 +7,9 @@ import IconButton from 'material-ui/IconButton';
 import AnnouncementIcon from 'material-ui/svg-icons/action/announcement';
 
 const StockInfo = (props) => {
-    const diffPrice = Number(props.nowPrice - props.lastPrice).toFixed(2);
+    const nowPrice = props.nowPrice || 0;
+    const lastPrice = props.lastPrice || 0;
+    const diffPrice = Number(nowPrice - lastPrice).toFixed(2);
     let flag = 'is-flat';
     if(diffPrice > 0){
         flag = 'is-up';
@@ -15,11 +17,12 @@ const StockInfo = (props) => {
         flag = 'is-down';
     }
 
-    const diffPercentage = Number(diffPrice / props.lastPrice * 100).toFixed(2);
-
+    const diffPercentage = Number(diffPrice / lastPrice * 100).toFixed(2);
+    const priceStr = nowPrice === 0 ? '' : nowPrice;
+    const diffStr = nowPrice === 0 ? '' : `${diffPrice} (${diffPercentage}%)`;
     return <div className={'StockHeader-price ' + flag}>
-        <div className='StockHeader-price-price'>{props.nowPrice}</div>
-        <div className='StockHeader-price-diff'>{`${diffPrice} (${diffPercentage}%)`}</div>
+        <div className='StockHeader-price-price'>{priceStr}</div>
+        <div className='StockHeader-price-diff'>{diffStr}</div>
     </div>
 }
 
