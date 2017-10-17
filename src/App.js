@@ -15,9 +15,8 @@ import TopBar from './container/TopBar';
 import StockCard from './container/StockCard';
 import Scroll from 'react-scroll';
 import { updateStocks } from './actions';
-// import LinearProgress from 'material-ui/LinearProgress';
-// var request = require('request');
-// var rp = require('request-promise');
+import InitLoading from './components/InitLoading';
+
 import io from 'socket.io-client';
 const stockMaUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://damp-garden-50966.herokuapp.com';
 // const stockMaUrl = 'https://damp-garden-50966.herokuapp.com';
@@ -42,7 +41,8 @@ class App extends Component {
             openSearchDialog: false,
             searchArticleValue: "",
             validDate: [],
-            articles: []
+            articles: [],
+            infoStatus: 'loading'
         };
     }
 
@@ -88,9 +88,9 @@ class App extends Component {
         const main = this;
         let query = null;
 
-        main.setState({
-            infoStatus: 'loading'
-        });
+        // main.setState({
+        //     infoStatus: 'loading'
+        // });
 
         if (!article || article === '') {
             query = this.state.article;
@@ -199,9 +199,9 @@ class App extends Component {
     _fetchArticles = (page, callback) => {
         // console.log('page', page);
 
-        this.setState({
-            infoStatus: 'loading'
-        });
+        // this.setState({
+        //     infoStatus: 'loading'
+        // });
 
         const promise = fetch(`https://www.ptt.cc/bbs/Stock/index${page}.html`)
         .then( response => {
@@ -379,9 +379,12 @@ class App extends Component {
                 }
             });
 
+            const name = this.props.app.DB[stock_id] ? this.props.app.DB[stock_id].name : "";
+
             // stock data obj
             return {
                 stock_id: stock_id,
+                name: name,
                 messages: stockMessages.sort((a, b) => this.benchTime(b.ipdatetime) - this.benchTime(a.ipdatetime)),
                 targetArticles: this.state.articles.filter( obj => obj.tags.idTags.indexOf(stock_id) !== -1 )
             }
@@ -432,11 +435,11 @@ class App extends Component {
                         duration={500} 
                         containerId='stockContainer'>
                             <StockHeader 
+                                name={stock.name}
                                 stock_id={stock.stock_id} 
                                 comments={stock.messages.length}
-                                percentage={Math.floor(stock.messages.length/totalMessages*70)}
+                                // percentage={Math.floor(stock.messages.length/totalMessages*70)}
                                 info={info}
-                                keys={keys}
                             />
                     </ScrollLink>
                 )
@@ -500,11 +503,11 @@ class App extends Component {
                 </div>
             </div>
         }else if (infoStatus === 'loading') {
-            return <div>Loading...</div>;
+            return <InitLoading message="Loading..."/>
         }else if (infoStatus === 'error') {
-            return <div>Error!!!</div>;
+            return <InitLoading message="Error!!!"/>
         }else{
-            return <div>Nothing!!!</div>;
+            return <InitLoading message="Nothing!!!"/>
         }
 
     }

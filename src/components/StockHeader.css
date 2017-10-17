@@ -2,19 +2,38 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  position: relative; }
+  position: relative;
+}
 
 .StockHeader-header {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 
 .StockHeader-name {
-  font-size: 1.3em;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.5em;
+  min-width: 85px;
+}
+
+.StockHeader-name .StockHeader-name-name {
+  font-size: 1.5em;
   font-weight: bold;
-  margin-right: 0.5em; }
+}
+
+.StockHeader-name .StockHeader-name-id {
+  font-weight: bold;
+  padding-left: 0.1em;
+}
 
 .StockHeader-keys {
-  display: flex; }
+  display: flex;
+  padding-top: 0.3em;
+  width: 100%;
+}
 
 .StockHeader-key {
   background-color: #2196F3;
@@ -23,36 +42,44 @@
   padding: 0.2em 0.3em;
   margin: 0.2em;
   font-size: 0.9em;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 .StockHeader-rank {
   display: flex;
-  flex: 1; }
+}
 
 .StockHeader-rank-comments {
   color: #333;
-  margin-left: 10px;
+  margin-left: 5px;
   white-space: nowrap;
-  width: 80px; }
+  width: 40px;
+}
 
-.StockHeader-rank-percentage {
-  background-color: #F44336;
-  min-width: 5%; }
+.StockHeader-price {
+  width: 90px;
+  color: #666;
+}
+
+.StockHeader-price.is-up {
+  color: #f3746d;
+}
+
+.StockHeader-price.is-down {
+  color: #6c9c46;
+}
+
+.StockHeader-price .StockHeader-price-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.StockHeader-price .StockHeader-price-diff {
+  font-size: 8px;
+}
 
 .TargetArticles {
   position: absolute;
   top: -38px;
-  right: -38px; }
-
-.StockHeader-price {
-  width: 90px;
-  color: #666; }
-  .StockHeader-price.is-up {
-    color: #f3746d; }
-  .StockHeader-price.is-down {
-    color: #6c9c46; }
-  .StockHeader-price .StockHeader-price-price {
-    font-size: 18px;
-    font-weight: bold; }
-  .StockHeader-price .StockHeader-price-diff {
-    font-size: 8px; }
+  right: -38px;
+}

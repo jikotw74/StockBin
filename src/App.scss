@@ -71,6 +71,10 @@
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    .StockHeader{
+        flex-direction: column;
+        align-items: flex-start;
+    }
     .StockMessage{
         cursor: pointer;
         &:hover{

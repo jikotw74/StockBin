@@ -5,6 +5,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import AnnouncementIcon from 'material-ui/svg-icons/action/announcement';
+import ChatIcon from 'material-ui/svg-icons/communication/chat-bubble-outline';
 
 const StockInfo = (props) => {
     const nowPrice = props.nowPrice || 0;
@@ -74,28 +75,33 @@ class StockHeader extends Component {
         const comments = this.props.comments;
         const targetArticles = this.props.targetArticles || [];
 
-        const rankStyle = {
-            width: percentage + '%'
-        };
+        // const rankStyle = {
+        //     width: percentage + '%'
+        // };
 
         return (
             <div className={className} onClick={this.props.click}>
                 <div className='StockHeader-header'>
-                    <div className='StockHeader-name'>{"#"+this.props.stock_id}</div>
+                    <div className='StockHeader-name'>
+                        <div className='StockHeader-name-name'>{this.props.name}</div>
+                        <div className='StockHeader-name-id'>{`#${this.props.stock_id}`}</div>
+                    </div>
                     {
                         this.props.info && <StockInfo {...this.props.info}/>
                     }
                     {
                         comments && (<div className='StockHeader-rank'>
-                            <div className='StockHeader-rank-percentage' style={rankStyle}/>
+                            <div className='StockHeader-rank-percentage'><ChatIcon/></div>
                             <div className='StockHeader-rank-comments'>{comments + "則"}</div>
                         </div>)
                     }
                 </div>
-                <div className='StockHeader-keys'>
-                    {this.props.keys && this.props.keys.map( (name, index) => <div key={index} className='StockHeader-key'>{name}</div>)}
-                </div>
-                {targetArticles.length > 0 && <TargetArticles articles={targetArticles}/>}  
+                {
+                    this.props.keys && <div className='StockHeader-keys'>
+                        {this.props.keys.map( (name, index) => <div key={index} className='StockHeader-key'>{name}</div>)}
+                    </div>
+                }
+                {targetArticles.length > 0 && <TargetArticles articles={targetArticles}/>}
             </div>
         );
     }

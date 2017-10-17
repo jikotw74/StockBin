@@ -1,0 +1,16 @@
+.InitLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.InitLoading .InitLoading-motto {
+  padding-top: 10vh;
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.InitLoading .InitLoading-message {
+  color: #999;
+  font-size: 18px;
+}

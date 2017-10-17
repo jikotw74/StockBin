@@ -5,6 +5,14 @@
     padding: 10px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    .StockHeader-name{
+        align-items: center;
+        flex-direction: row;
+        min-width: 0;
+        .StockHeader-name-id{
+            padding-left: 0.3em;
+        }
+    }
 }
 
 .StockCard-msg-list{
