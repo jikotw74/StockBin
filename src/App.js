@@ -42,7 +42,8 @@ class App extends Component {
             searchArticleValue: "",
             validDate: [],
             articles: [],
-            infoStatus: 'loading'
+            infoStatus: 'loading',
+            registedStocks: false
         };
     }
 
@@ -393,8 +394,15 @@ class App extends Component {
         const result = allStock.sort((a, b) => b.messages.length - a.messages.length);
 
         //
-        console.log('emit registStocks');
-        socket.emit('registStocks', result.map(stock => stock.stock_id));
+        const registedStocks = result.map(stock => stock.stock_id);
+        if(!this.state.registedStocks || (this.state.registedStocks.length !== registedStocks.length)){
+            this.setState({
+               registedStocks: registedStocks 
+            }, () => {
+                console.log('emit registStocks');
+                socket.emit('registStocks', registedStocks);
+            });
+        }
 
         return result;
     }
